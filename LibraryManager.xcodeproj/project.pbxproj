@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		DCC41B84207F4DA20096C806 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCC41B83207F4DA20096C806 /* main.cpp */; };
+		DCC41B8C207F4DFD0096C806 /* Library.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCC41B8A207F4DFD0096C806 /* Library.cpp */; };
+		DCC41B8F207F4E330096C806 /* Ressource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCC41B8D207F4E330096C806 /* Ressource.cpp */; };
+		DCC41B92207F4E500096C806 /* Book.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCC41B90207F4E500096C806 /* Book.cpp */; };
+		DCC41B95207F4E580096C806 /* CD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCC41B93207F4E580096C806 /* CD.cpp */; };
+		DCC41B98207F4E730096C806 /* Digital_Ressource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCC41B96207F4E730096C806 /* Digital_Ressource.cpp */; };
+		DCC41B9B207F4E820096C806 /* VHS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCC41B99207F4E820096C806 /* VHS.cpp */; };
+		DCC41B9E207F4E8D0096C806 /* DVD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCC41B9C207F4E8D0096C806 /* DVD.cpp */; };
+		DCC41BA1207F4E980096C806 /* Magazine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCC41B9F207F4E980096C806 /* Magazine.cpp */; };
+		DCE5F42A20907A0E005D14AC /* Commands.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCE5F42820907A0E005D14AC /* Commands.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +34,24 @@
 /* Begin PBXFileReference section */
 		DCC41B80207F4DA20096C806 /* LibraryManager */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LibraryManager; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCC41B83207F4DA20096C806 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		DCC41B8A207F4DFD0096C806 /* Library.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Library.cpp; sourceTree = "<group>"; };
+		DCC41B8B207F4DFD0096C806 /* Library.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Library.hpp; sourceTree = "<group>"; };
+		DCC41B8D207F4E330096C806 /* Ressource.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Ressource.cpp; sourceTree = "<group>"; };
+		DCC41B8E207F4E330096C806 /* Ressource.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Ressource.hpp; sourceTree = "<group>"; };
+		DCC41B90207F4E500096C806 /* Book.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Book.cpp; sourceTree = "<group>"; };
+		DCC41B91207F4E500096C806 /* Book.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Book.hpp; sourceTree = "<group>"; };
+		DCC41B93207F4E580096C806 /* CD.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CD.cpp; sourceTree = "<group>"; };
+		DCC41B94207F4E580096C806 /* CD.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CD.hpp; sourceTree = "<group>"; };
+		DCC41B96207F4E730096C806 /* Digital_Ressource.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Digital_Ressource.cpp; sourceTree = "<group>"; };
+		DCC41B97207F4E730096C806 /* Digital_Ressource.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Digital_Ressource.hpp; sourceTree = "<group>"; };
+		DCC41B99207F4E820096C806 /* VHS.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VHS.cpp; sourceTree = "<group>"; };
+		DCC41B9A207F4E820096C806 /* VHS.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VHS.hpp; sourceTree = "<group>"; };
+		DCC41B9C207F4E8D0096C806 /* DVD.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DVD.cpp; sourceTree = "<group>"; };
+		DCC41B9D207F4E8D0096C806 /* DVD.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DVD.hpp; sourceTree = "<group>"; };
+		DCC41B9F207F4E980096C806 /* Magazine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Magazine.cpp; sourceTree = "<group>"; };
+		DCC41BA0207F4E980096C806 /* Magazine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Magazine.hpp; sourceTree = "<group>"; };
+		DCE5F42820907A0E005D14AC /* Commands.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Commands.cpp; sourceTree = "<group>"; };
+		DCE5F42920907A0E005D14AC /* Commands.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Commands.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +85,24 @@
 			isa = PBXGroup;
 			children = (
 				DCC41B83207F4DA20096C806 /* main.cpp */,
+				DCE5F42820907A0E005D14AC /* Commands.cpp */,
+				DCE5F42920907A0E005D14AC /* Commands.hpp */,
+				DCC41B8A207F4DFD0096C806 /* Library.cpp */,
+				DCC41B8B207F4DFD0096C806 /* Library.hpp */,
+				DCC41B8D207F4E330096C806 /* Ressource.cpp */,
+				DCC41B8E207F4E330096C806 /* Ressource.hpp */,
+				DCC41B90207F4E500096C806 /* Book.cpp */,
+				DCC41B91207F4E500096C806 /* Book.hpp */,
+				DCC41B93207F4E580096C806 /* CD.cpp */,
+				DCC41B94207F4E580096C806 /* CD.hpp */,
+				DCC41B96207F4E730096C806 /* Digital_Ressource.cpp */,
+				DCC41B97207F4E730096C806 /* Digital_Ressource.hpp */,
+				DCC41B99207F4E820096C806 /* VHS.cpp */,
+				DCC41B9A207F4E820096C806 /* VHS.hpp */,
+				DCC41B9C207F4E8D0096C806 /* DVD.cpp */,
+				DCC41B9D207F4E8D0096C806 /* DVD.hpp */,
+				DCC41B9F207F4E980096C806 /* Magazine.cpp */,
+				DCC41BA0207F4E980096C806 /* Magazine.hpp */,
 			);
 			path = LibraryManager;
 			sourceTree = "<group>";
@@ -118,7 +163,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCC41B98207F4E730096C806 /* Digital_Ressource.cpp in Sources */,
+				DCC41BA1207F4E980096C806 /* Magazine.cpp in Sources */,
+				DCC41B95207F4E580096C806 /* CD.cpp in Sources */,
+				DCE5F42A20907A0E005D14AC /* Commands.cpp in Sources */,
+				DCC41B92207F4E500096C806 /* Book.cpp in Sources */,
 				DCC41B84207F4DA20096C806 /* main.cpp in Sources */,
+				DCC41B9B207F4E820096C806 /* VHS.cpp in Sources */,
+				DCC41B8C207F4DFD0096C806 /* Library.cpp in Sources */,
+				DCC41B9E207F4E8D0096C806 /* DVD.cpp in Sources */,
+				DCC41B8F207F4E330096C806 /* Ressource.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
