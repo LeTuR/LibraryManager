@@ -9,9 +9,19 @@
 #ifndef Commands_hpp
 #define Commands_hpp
 
+
+#include "Commands.hpp"
+#include "Ressource.hpp"
+#include "Book.hpp"
+#include "CD.hpp"
+#include "Digital_Ressource.hpp"
+#include "VHS.hpp"
+#include "Magazine.hpp"
+#include "DVD.hpp"
+#include "Library.hpp"
+
 #include <stdio.h>
 #include <string>
-
 
 void add(std::string type);
 

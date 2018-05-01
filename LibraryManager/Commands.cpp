@@ -14,11 +14,15 @@
 #include "VHS.hpp"
 #include "Magazine.hpp"
 #include "DVD.hpp"
+#include "Library.hpp"
+
 
 #include <iostream>
 #include <string>
 
 using namespace std;
+
+Library *l = new Library();
 
 void add(string type){
 	string input;
@@ -49,29 +53,33 @@ void add(string type){
 			cout<<"How many articles?\n";
 			cin>>articles;
 			Magazine *r = new Magazine(title, author, pages, publication, collection, summary, editor, articles);
+			l->addRessource(*r);
+			cout<<"Magazine succefully added!\n";
 		}
 		else{
 			Book *r = new Book(title, author, pages, publication, collection, summary);
+			l->addRessource(*r);
+			cout<<"Magazine succefully added!\n";
 		}
 	}
 	
-	if (type == "CD"){
+	else if (type == "CD"){
 	}
 	
-	if (type == "Digital_Ressource"){
+	else if (type == "Digital_Ressource"){
 		
 	}
-	if (type == "VHS"){
+	else if (type == "VHS"){
 		
 	}
-	if (type == "DVD"){
+	else if (type == "DVD"){
 		
 	}
-	if (type == "Magazine"){
+	else if (type == "Magazine"){
 		
 	}
 	else{
-		cerr<<"Expected a type, press L to see the list of types";
+		cerr<<"Expected a type, press L to see the list of types\n";
 		cin>>input;
 		if (input == "L"){
 			cout<<"Book"<<"\n";

@@ -9,6 +9,8 @@
 #include "Library.hpp"
 #include <stdio.h>
 #include <string>
+#include <vector>
+
 
 using namespace std;
 
@@ -43,6 +45,6 @@ Library::~Library(){
 					// Else //
 					//////////
 
-void addRessource(){
-	listRessource;
+void Library::addRessource(Ressource r){
+	listRessources.push_back(r);
 }

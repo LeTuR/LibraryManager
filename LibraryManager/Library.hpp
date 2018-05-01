@@ -25,10 +25,8 @@ public:
 	void search(std::string);
 	void clear();
 	void showId(int id);
-		
-	private:
-	std::vector<Ressource> listRessources;
-		
+	
+	std::vector<Ressource> listRessources;		
 	};
 
 #endif /* Library_hpp */

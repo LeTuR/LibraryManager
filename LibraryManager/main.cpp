@@ -20,8 +20,7 @@ int main(int argc, const char * argv[]) {
 	cout << "Welcome to the Library Manager:\n";
 	cout << "Please enter a command, to see the list of commands type HELP, if you want to exit type EXIT\n";
 	while(end == 0){
-		cin>>input>>type;
-		
+		cin>>input;
 		if (input == "HELP"){
 			cout << "--------------------\n";
 			cout << "List of commands:\n";
@@ -33,43 +32,44 @@ int main(int argc, const char * argv[]) {
 			cout << "Please enter a command, to see the list of commands type HELP, if you want to exit type EXIT\n";
 		}
 		
-		if (input == "ADD"){
+		else if (input == "ADD"){
+			cin>>type;
+			add(type);
+		}
+		
+		else if (input == "LOAD"){
 			
 		}
 		
-		if (input == "LOAD"){
+		else if (input == "SAVE"){
 			
 		}
 		
-		if (input == "SAVE"){
+		else if (input == "SEARCH"){
 			
 		}
 		
-		if (input == "SEARCH"){
+		else if (input == "CLEAR"){
 			
 		}
 		
-		if (input == "CLEAR"){
+		else if (input == "LIST"){
 			
 		}
 		
-		if (input == "LIST"){
+		else if (input == "SHOW"){
 			
 		}
 		
-		if (input == "SHOW"){
+		else if (input == "DELETE"){
 			
 		}
 		
-		if (input == "DELETE"){
+		else if (input == "RESET"){
 			
 		}
 		
-		if (input == "RESET"){
-			
-		}
-		
-		if (input == "EXIT"){
+		else if (input == "EXIT"){
 			end = 1;
 					}
 	}
