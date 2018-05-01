@@ -18,15 +18,25 @@ class Library{
 		
 public:
 	Library();
+<<<<<<< HEAD
 	~Library();
 	void addRessource(Ressource r);
+=======
+>>>>>>> master
 	void loadRessources();
 	void saveRessources();
 	void search(std::string);
 	void clear();
 	void showId(int id);
+<<<<<<< HEAD
 	
 	std::vector<Ressource> listRessources;		
+=======
+		
+	private:
+	std::vector<Ressource> listRessources;
+		
+>>>>>>> master
 	};
 
 #endif /* Library_hpp */

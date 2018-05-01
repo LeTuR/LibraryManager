@@ -27,8 +27,12 @@ Book::Book(){
 	summary = "Unknown";
 }
 
+<<<<<<< HEAD
 Book::Book(string _title, string _author, int _pages, string _publication, string _collection, string _summary){
 	Ressource(_title, _author);
+=======
+Book::Book(int _pages, string _publication, string _collection, string _summary){
+>>>>>>> master
 	pages = _pages;
 	publication = _publication;
 	collection = _collection;

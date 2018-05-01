@@ -25,8 +25,12 @@ Magazine::Magazine(){
 	articles = 0;
 }
 
+<<<<<<< HEAD
 Magazine::Magazine(string _title, string _author, int _pages, string _publication, string _collection, string _summary, string _editor, int _articles){
 	Book(_title, _author, _pages, _publication, _collection, _summary);
+=======
+Magazine::Magazine(string _editor, int _articles){
+>>>>>>> master
 	editor = _editor;
 	articles = _articles;
 }

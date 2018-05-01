@@ -26,8 +26,12 @@ CD::CD(){
 	studio = "Unknown";
 }
 
+<<<<<<< HEAD
 CD::CD(string _title, string _author, int _duration, int _chapters, string _studio){
 	Ressource(_title, _author);
+=======
+CD::CD(int _duration, int _chapters, string _studio){
+>>>>>>> master
 	duration = _duration;
 	chapters = _chapters;
 	studio = _studio;

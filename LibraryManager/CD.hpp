@@ -23,7 +23,11 @@ private:
 	
 public:
 	CD();
+<<<<<<< HEAD
 	CD(std::string _title, std::string _author, int _duration, int _chapters, std::string _studio);
+=======
+	CD(int _duration, int _chapters, std::string _studio);
+>>>>>>> master
 	~CD();
 	int getDuration();
 	int getChapters();

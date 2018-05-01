@@ -19,7 +19,10 @@ class Digital_Ressource : public Ressource{
 	
 public:
 	Digital_Ressource();
+<<<<<<< HEAD
 	Digital_Ressource(std::string _title, std::string _author, doc_type _type, int _size, std::string _path);
+=======
+>>>>>>> master
 	~Digital_Ressource();
 	
 	doc_type getType();

@@ -25,8 +25,12 @@ VHS::VHS(){
 	studio = "Unknown";
 }
 
+<<<<<<< HEAD
 VHS::VHS(string _title, string _author, int _duration, string _studio){
 	Ressource(_title, _author);
+=======
+VHS::VHS(int _duration, string _studio){
+>>>>>>> master
 	duration = _duration;
 	studio = _studio;
 }
