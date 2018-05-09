@@ -7,7 +7,7 @@
 //
 
 #include "Library.hpp"
-#include <stdio.h>
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -48,3 +48,6 @@ void Library::addRessource(Ressource r){
 	listRessources.push_back(r);
 }
 
+void Library::showRessource(int id){
+	listRessources[id].showInfo();
+}

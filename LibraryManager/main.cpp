@@ -14,6 +14,7 @@ using namespace std;
 int main(int argc, const char * argv[]) {
 	string input;
 	string type;
+	int id;
 	int end = 0;
 	cout << "Welcome to the Library Manager!\n";
 	while(end == 0){
@@ -57,7 +58,8 @@ int main(int argc, const char * argv[]) {
 		}
 		
 		else if (input == "SHOW"){
-			
+			cin>>id;
+			show(id);
 		}
 		
 		else if (input == "DELETE"){

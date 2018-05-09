@@ -25,5 +25,7 @@
 
 void add(std::string type);
 void load();
+void show(int id);
+
 
 #endif /* Commands_hpp */
