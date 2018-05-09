@@ -18,11 +18,8 @@ class Magazine : public Book{
 public:
 	
 	Magazine();
-<<<<<<< HEAD
 	Magazine(std::string _title, std::string _author, int _pages, std::string _publication, std::string _collection, std::string _summary, std::string _editor, int _articles);
-=======
 	Magazine(std::string _editor, int _articles);
->>>>>>> master
 	~Magazine();
 	
 	std::string getEditors();

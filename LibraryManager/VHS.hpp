@@ -21,11 +21,8 @@ protected:
 	
 public:
 	VHS();
-<<<<<<< HEAD
 	VHS(std::string _title, std::string _author, int _duration, std::string _studio);
-=======
 	VHS(int _duration, std::string _studio);
->>>>>>> master
 	~VHS();
 	
 	int getDuration();

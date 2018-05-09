@@ -9,11 +9,7 @@
 #include "Library.hpp"
 #include <stdio.h>
 #include <string>
-<<<<<<< HEAD
 #include <vector>
-
-=======
->>>>>>> master
 
 using namespace std;
 
@@ -25,23 +21,17 @@ using namespace std;
 					// Constructor //
 					/////////////////
 
-<<<<<<< HEAD
 Library::Library(){
 	
 }
 
-=======
->>>>>>> master
 					////////////////
 					// Destructor //
 					////////////////
 
-<<<<<<< HEAD
 Library::~Library(){
 	
 }
-=======
->>>>>>> master
 					//////////////
 					// Accessor //
 					//////////////
@@ -53,10 +43,8 @@ Library::~Library(){
 					//////////
 					// Else //
 					//////////
-<<<<<<< HEAD
 
 void Library::addRessource(Ressource r){
 	listRessources.push_back(r);
 }
-=======
->>>>>>> master
+

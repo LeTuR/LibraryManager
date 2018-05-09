@@ -24,5 +24,6 @@
 #include <string>
 
 void add(std::string type);
+void load();
 
 #endif /* Commands_hpp */

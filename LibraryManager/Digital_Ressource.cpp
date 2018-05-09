@@ -20,31 +20,28 @@ using namespace std;
 					// Constructor //
 					/////////////////
 
-<<<<<<< HEAD
+
 Digital_Ressource::Digital_Ressource(string _title, string _author, doc_type _type, int _size, string _path){
 	Ressource(_title, _author);
 	type = _type;
 	size = _size;
 	path = _path;
 }
-=======
->>>>>>> master
+
 					////////////////
 					// Destructor //
 					////////////////
 
-<<<<<<< HEAD
 Digital_Ressource::~Digital_Ressource(){
 	
 }
 
-=======
->>>>>>> master
+
 					//////////////
 					// Accessor //
 					//////////////
 
-<<<<<<< HEAD
+
 doc_type Digital_Ressource::getType(){
 	return type;
 }
@@ -57,8 +54,7 @@ string Digital_Ressource::getPath(){
 	return path;
 }
 
-=======
->>>>>>> master
+
 					/////////////
 					// Mutator //
 					/////////////

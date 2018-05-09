@@ -15,8 +15,6 @@
 #include "Magazine.hpp"
 #include "DVD.hpp"
 #include "Library.hpp"
-
-
 #include <iostream>
 #include <string>
 
@@ -25,20 +23,35 @@ using namespace std;
 Library *l = new Library();
 
 void add(string type){
+	
 	string input;
 	string title;
 	string author;
+	//Book and Magazine
 	int pages;
 	string publication;
 	string collection;
 	string summary;
 	string editor;
 	int articles;
+	//CD
+	int duration;
+	int chapters;
+	string studio;
+	//Digital_ressource
+	string doc_type;
+	int size;
+	string path;
+	//VHS and DVD	
+	
+	//RESSOURCE
 	cout<<"What is the title?\n";
 	cin>>title;
 	cout<<"Who is the author?\n";
 	cin>>author;
-	if (type == "Book" or "Magazine"){
+	
+	//BOOK
+	if (type == "Book" or type == "Magazine"){
 		cout<<"How many pages?\n";
 		cin>>pages;
 		cout<<"Date of publication (MM/DD/YYYY)?\n";
@@ -47,6 +60,7 @@ void add(string type){
 		cin>>collection;
 		cout<<"What is the summary?\n";
 		cin>>summary;
+		//MAGAZINE
 		if(type == "Magazine"){
 			cout<<"Who is the editor?\n";
 			cin>>editor;
@@ -59,23 +73,37 @@ void add(string type){
 		else{
 			Book *r = new Book(title, author, pages, publication, collection, summary);
 			l->addRessource(*r);
-			cout<<"Magazine succefully added!\n";
+			cout<<"Book succefully added!\n";
 		}
 	}
 	
-	else if (type == "CD"){
+	//DIGITAL RESSOURCE
+	else if (type == "Digital_Ressource"){
+		cout<<"What is the type of document PDF, DOC or PTT?\n";
+		cin>>doc_type;
+		cout<<"What is the size?\n";
+		cin>>size;
+		cout<<"What is the path of the document?\n";
+		cin>>path;
 	}
 	
-	else if (type == "Digital_Ressource"){
-		
-	}
-	else if (type == "VHS"){
-		
+	else if ((type == "VHS") or (type == "DVD")){
+			cout<<"What is the duration (in seconds)\n";
+			cin>>duration;
+			cout<<"What is the studio?\n";
+			cin>>studio;
+		if (type == "DVD"){
+				cout<<"How many chapters?\n";
+				cin>>chapters;
+				DVD *r = new DVD(title, author, duration, studio, chapters);
+				l->addRessource(*r);
+				cout<<"DVD succefully added!\n";
+		}
+			VHS *r = new VHS(title, author, duration, studio);
+			l->addRessource(*r);
+			cout<<"VHS succefully added!\n";
 	}
 	else if (type == "DVD"){
-		
-	}
-	else if (type == "Magazine"){
 		
 	}
 	else{
@@ -90,4 +118,10 @@ void add(string type){
 			cout<<"Magazine"<<"\n";
 		}
 	}
+}
+
+void load(){
+	string path;
+	cout<<"Please type the path of the file you want to load"<<"\n";
+	cin>>path;
 }

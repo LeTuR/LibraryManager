@@ -17,11 +17,8 @@ class DVD : public VHS{
 public:
 	
 	DVD();
-<<<<<<< HEAD
 	DVD(std::string _title, std::string _author, int _duration, std::string _studio, int _chapters);
-=======
 	DVD(int _chapters);
->>>>>>> master
 	~DVD();
 	
 	int getChapters();
