@@ -23,6 +23,8 @@ using namespace std;
 
 Library *l = new Library();
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void add(string type){
 	
 	string input;
@@ -121,14 +123,17 @@ void add(string type){
 	}
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void load(){
 	string path;
 	cout<<"Please type the path of the file you want to load"<<"\n";
 	cin>>path;
 	string const loadfile(path);
-	ofstream loading(loadfile.c_str());
+	
+	ifstream loading(loadfile.c_str());
 	if (loading){
-		string input;
+		string type;
 		string title;
 		string author;
 		//Book and Magazine
@@ -146,58 +151,58 @@ void load(){
 		string doc_type;
 		int size;
 		string path;
+		string line;
 		//VHS and DVD
-		
-		//RESSOURCE
-		loading>>title;
-		loading>>author;
-		//BOOK
-		if (type == "Book" or type == "Magazine"){
-			cin>>pages;
-			cin>>publication;
-			cin>>collection;
-			cin>>summary;
-			//MAGAZINE
-			if(type == "Magazine"){
-				cin>>editor;
-				cin>>articles;
-				Magazine *r = new Magazine(title, author, pages, publication, collection, summary, editor, articles);
-				l->addRessource(*r);
+		while(getline(loading, line)){
+			//RESSOURCE
+			loading>>type;
+			loading>>title;
+			loading>>author;
+			//BOOK
+			if (type == "Book" or type == "Magazine"){
+				loading>>pages;
+				loading>>publication;
+				loading>>collection;
+				loading>>summary;
+				//MAGAZINE
+				if(type == "Magazine"){
+					loading>>editor;
+					loading>>articles;
+					Magazine *r = new Magazine(title, author, pages, publication, collection, summary, editor, articles);
+					l->addRessource(*r);
+				}
+				else{
+					Book *r = new Book(title, author, pages, publication, collection, summary);
+					l->addRessource(*r);
+				}
 			}
-			else{
-				Book *r = new Book(title, author, pages, publication, collection, summary);
+			
+			//DIGITAL RESSOURCE
+			else if (type == "Digital_Ressource"){
+				loading>>doc_type;
+				loading>>size;
+				loading>>path;
+			}
+			
+			else if ((type == "VHS") or (type == "DVD")){
+				loading>>duration;
+				loading>>studio;
+				if (type == "DVD"){
+					loading>>chapters;
+					DVD *r = new DVD(title, author, duration, studio, chapters);
+					l->addRessource(*r);
+				}
+				VHS *r = new VHS(title, author, duration, studio);
 				l->addRessource(*r);
 			}
 		}
-		
-		//DIGITAL RESSOURCE
-		else if (type == "Digital_Ressource"){
-			cout<<"What is the type of document PDF, DOC or PTT?\n";
-			cin>>doc_type;
-			cout<<"What is the size?\n";
-			cin>>size;
-			cout<<"What is the path of the document?\n";
-			cin>>path;
-		}
-		
-		else if ((type == "VHS") or (type == "DVD")){
-			cout<<"What is the duration (in seconds)\n";
-			cin>>duration;
-			cout<<"What is the studio?\n";
-			cin>>studio;
-			if (type == "DVD"){
-				cout<<"How many chapters?\n";
-				cin>>chapters;
-				DVD *r = new DVD(title, author, duration, studio, chapters);
-				l->addRessource(*r);
-				cout<<"DVD succefully added!\n";
-			}
-			VHS *r = new VHS(title, author, duration, studio);
-			l->addRessource(*r);
-			cout<<"VHS succefully added!\n";
+		cout<<"Library succefully loaded!\n";
 	}
 	else{
-		cerr<<"Error opening file path";
+		cerr<<"Error opening file path\n";
 	}
 	loading.close();
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

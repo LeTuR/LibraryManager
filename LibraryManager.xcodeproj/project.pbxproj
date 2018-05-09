@@ -32,7 +32,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DC39CF9020A2E5E200666F86 /* data_library */ = {isa = PBXFileReference; lastKnownFileType = text; path = data_library; sourceTree = "<group>"; };
+		DC39CF9020A2E5E200666F86 /* libdata.data */ = {isa = PBXFileReference; lastKnownFileType = text; path = libdata.data; sourceTree = "<group>"; };
 		DCC41B80207F4DA20096C806 /* LibraryManager */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LibraryManager; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCC41B83207F4DA20096C806 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		DCC41B8A207F4DFD0096C806 /* Library.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Library.cpp; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 		DCC41B77207F4DA20096C806 = {
 			isa = PBXGroup;
 			children = (
-				DC39CF9020A2E5E200666F86 /* data_library */,
+				DC39CF9020A2E5E200666F86 /* libdata.data */,
 				DCC41B82207F4DA20096C806 /* LibraryManager */,
 				DCC41B81207F4DA20096C806 /* Products */,
 			);
