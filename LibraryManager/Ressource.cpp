@@ -66,6 +66,10 @@ bool Ressource::getDisponibility(){
 	return free;
 }
 
+string Ressource::getInfo(){
+	
+}
+
 					/////////////
 					// Mutator //
 					/////////////

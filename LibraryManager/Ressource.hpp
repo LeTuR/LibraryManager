@@ -30,7 +30,7 @@ public:
 	std::string getAuthor();
 	bool getDisponibility();
 	int getId();
-	void showInfo();
+	std::string getInfo();
 };
 
 #endif /* Ressource_hpp */
