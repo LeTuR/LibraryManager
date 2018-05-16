@@ -24,7 +24,12 @@ using namespace std;
 ///////////////////////////////////////////////////////////////////show////////////////////////////////////////////////////////
 
 void show(Library *l, int id){
-	((l->listRessources)[id]).display();
+	if(id < l->getRessource_counter() and id>=0){
+		((l->listRessources)[id]).display();
+	}
+	else{
+		cerr<<"Cette ID n'éxiste pas."<<"\n";
+	}
 	cout<<"\n";
 }
 
@@ -36,11 +41,13 @@ void add(Library *l, string type){
     string title;
     string author;
     //Book and Magazine
-    int pages;
+    string spages;
+	int pages;
     string publication;
     string collection;
     string summary;
     string editor;
+	string sarticles;
     int articles;
     //CD
     int duration;
@@ -61,7 +68,12 @@ void add(Library *l, string type){
     //BOOK
     if (type == "Book" or type == "Magazine"){
         cout<<"How many pages?\n";
-        cin>>pages;
+        cin>>spages;
+		try {
+			pages = stoi(spages);
+		} catch (const std::invalid_argument a) {
+			cerr<<a.what()<<"\n";
+		}
         cout<<"Date of publication (MM/DD/YYYY)?\n";
         cin>>publication;
         cout<<"What is the collection?\n";
@@ -75,7 +87,6 @@ void add(Library *l, string type){
             cout<<"How many articles?\n";
             cin>>articles;
             Magazine *r = new Magazine(title, author, pages, publication, collection, summary, editor, articles);
-			cout<<r->getTitle();
             l->addRessource(r);
             cout<<"Magazine succefully added!\n";
         }
