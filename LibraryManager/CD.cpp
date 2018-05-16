@@ -7,7 +7,8 @@
 //
 
 #include "CD.hpp"
-#include <stdio.h>
+#include <fstream>
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -60,3 +61,13 @@ string CD::getStudio(){
 					//////////
 					// Else //
 					//////////
+
+void CD::save(ofstream &saving){
+	Ressource::save(saving);
+	saving<<duration<<chapters<<studio;
+}
+
+void CD::display(){
+	Ressource::display();
+	cout<<duration<<chapters<<studio;
+}

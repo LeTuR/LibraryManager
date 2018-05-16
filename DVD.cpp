@@ -7,8 +7,7 @@
 //
 
 #include "DVD.hpp"
-#include <fstream>
-#include <iostream>
+#include <stdio.h>
 #include <string>
 
 using namespace std;
@@ -46,6 +45,11 @@ int DVD::getChapters(){
 	return chapters;
 }
 
+void DVD::save(){
+    VHS::save();
+    cout<<chapters;
+}
+
 					/////////////
 					// Mutator //
 					/////////////
@@ -53,13 +57,3 @@ int DVD::getChapters(){
 					//////////
 					// Else //
 					//////////
-
-void DVD::save(ofstream &saving){
-	VHS::save(saving);
-	saving<<chapters;
-}
-
-void DVD::display(){
-	VHS::display();
-	cout<<chapters;
-}

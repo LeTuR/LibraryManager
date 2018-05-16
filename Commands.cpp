@@ -16,21 +16,13 @@
 #include "DVD.hpp"
 #include "Library.hpp"
 #include <iostream>
-#include <fstream>
 #include <string>
 
 using namespace std;
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Library *l = new Library();
 
-void show(Library *l, int id){
-	cout<<((l->listRessources)[id]).getTitle();
-	cout<<"\n";
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void add(Library *l, string type){
+void add(string type){
 
     string input;
     string title;
@@ -75,12 +67,12 @@ void add(Library *l, string type){
             cout<<"How many articles?\n";
             cin>>articles;
             Magazine *r = new Magazine(title, author, pages, publication, collection, summary, editor, articles);
-            l->addRessource(r);
+            l->addRessource(*r);
             cout<<"Magazine succefully added!\n";
         }
         else{
             Book *r = new Book(title, author, pages, publication, collection, summary);
-            l->addRessource(r);
+            l->addRessource(*r);
             cout<<"Book succefully added!\n";
         }
     }
@@ -107,18 +99,18 @@ void add(Library *l, string type){
                 cin>>chapters;
                 if (type == "DVD") {
                     DVD *r = new DVD(title, author, duration, studio, chapters);
-                    l->addRessource(r);
+                    l->addRessource(*r);
                     cout<<"DVD succefully added!\n";
                 }
                 //CD
                 else {
                     CD *r = new CD(title, author, duration, chapters, studio);
-                    l->addRessource(r);
+                    l->addRessource(*r);
                     cout<<"CD succefully added!\n";
                 }
         }
             VHS *r = new VHS(title, author, duration, studio);
-            l->addRessource(r);
+            l->addRessource(*r);
             cout<<"VHS succefully added!\n";
     }
 
@@ -136,7 +128,7 @@ void add(Library *l, string type){
     }
 }
 
-void load(Library *l){
+void load(){
     string path;
     cout<<"Please type the path of the file you want to load"<<"\n";
     cin>>path;
@@ -180,11 +172,11 @@ void load(Library *l){
                     loading>>editor;
                     loading>>articles;
                     Magazine *r = new Magazine(title, author, pages, publication, collection, summary, editor, articles);
-                    l->addRessource(r);
+                    l->addRessource(*r);
                 }
                 else{
                     Book *r = new Book(title, author, pages, publication, collection, summary);
-					l->addRessource(r);
+                    l->addRessource(*r);
                 }
             }
 
@@ -201,10 +193,10 @@ void load(Library *l){
                 if (type == "DVD"){
                     loading>>chapters;
                     DVD *r = new DVD(title, author, duration, studio, chapters);
-                    l->addRessource(r);
+                    l->addRessource(*r);
                 }
                 VHS *r = new VHS(title, author, duration, studio);
-                l->addRessource(r);
+                l->addRessource(*r);
             }
         }
         cout<<"Library succefully loaded!\n";
@@ -216,16 +208,20 @@ void load(Library *l){
 }
 
 
-void save(Library *l, string filename){
+void save(string filename){
 
-    ofstream saving(filename, ios::out | ios::trunc);
-    int i=0;
-	
-    if(saving)
+    ofstream filename("library.txt", ios::out | ios::trunc);
+    int i;
+    ressource buffer;
+    listRessources library;
+
+    if(filename)
     {
-		((l->listRessources)[i++]).save(saving);
-		saving<<"TEST";
-		saving.close();
+        while (filename.eof()){
+            buffer = library[i++];
+            cout<<buffer.save()<<endl;
+            }
+        filename.close();
     }
 
     else

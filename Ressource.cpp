@@ -7,8 +7,7 @@
 //
 
 #include "Ressource.hpp"
-#include <iostream>
-#include <fstream>
+#include <stdio.h>
 #include <string>
 
 using namespace std;
@@ -44,7 +43,7 @@ Ressource::Ressource(string _title, string _author){
 					////////////////
 
 Ressource::~Ressource(){
-	//id_counter--;
+	id_counter--;
 }
 
 					//////////////
@@ -67,9 +66,8 @@ bool Ressource::getDisponibility(){
 	return free;
 }
 
-string Ressource::getInfo(){
-	string info;
-	return info;
+void Ressource::save(){
+    cout<<title<<author<<id<<free;
 }
 
 					/////////////
@@ -79,11 +77,3 @@ string Ressource::getInfo(){
 					//////////
 					// Else //
 					//////////
-
-void Ressource::save(ofstream &saving){
-	saving<<title<<author<<id<<free;
-}
-
-void Ressource::display(){
-	cout<<title<<author<<id<<free;
-}

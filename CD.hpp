@@ -9,7 +9,7 @@
 #ifndef CD_hpp
 #define CD_hpp
 
-#include <iostream>
+#include <stdio.h>
 #include <string>
 #include "Ressource.hpp"
 
@@ -27,8 +27,7 @@ public:
 	CD(int _duration, int _chapters, std::string _studio);
 	~CD();
 
-	virtual void save(std::ofstream &saving);
-	virtual void display();
+    virtual std::string save();
 
 	int getDuration();
 	int getChapters();

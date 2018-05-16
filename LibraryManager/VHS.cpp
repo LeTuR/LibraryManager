@@ -7,7 +7,8 @@
 //
 
 #include "VHS.hpp"
-#include <stdio.h>
+#include <fstream>
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -58,3 +59,13 @@ string VHS::getStudio(){
 					//////////
 					// Else //
 					//////////
+
+void VHS::save(ofstream &saving){
+	Ressource::save(saving);
+	saving<<duration<<studio;
+}
+
+void VHS::display(){
+	Ressource::display();
+	cout<<duration<<studio;
+}

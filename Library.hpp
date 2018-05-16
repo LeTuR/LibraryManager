@@ -9,7 +9,7 @@
 #ifndef Library_hpp
 #define Library_hpp
 
-#include <iostream>
+#include <stdio.h>
 #include <vector>
 #include <string>
 #include "Ressource.hpp"
@@ -19,13 +19,13 @@ class Library{
 public:
 	Library();
 	~Library();
-	void addRessource(Ressource *r);
+	void addRessource(Ressource r);
 	void loadRessources();
 	void saveRessources();
 	void search(std::string);
 	void clear();
 	void showId(int id);
-	void showRessource(int id);
+	
 	std::vector<Ressource> listRessources;
 	};
 

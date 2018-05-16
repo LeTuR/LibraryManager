@@ -7,8 +7,7 @@
 //
 
 #include "Magazine.hpp"
-#include <fstream>
-#include <iostream>
+#include <stdio.h>
 #include <string>
 
 using namespace std;
@@ -51,6 +50,12 @@ string Magazine::getEditors(){
 int Magazine::getArticles(){
 	return articles;
 }
+
+void Magazine::save(){
+    Book::save();
+    cout<<editor<<articles;
+}
+
 					/////////////
 					// Mutator //
 					/////////////
@@ -58,13 +63,3 @@ int Magazine::getArticles(){
 					//////////
 					// Else //
 					//////////
-
-void Magazine::save(ofstream &saving){
-	Book::save(saving);
-	saving<<editor<<articles;
-}
-
-void Magazine::display(){
-	Book::display();
-	cout<<editor<<articles;
-}

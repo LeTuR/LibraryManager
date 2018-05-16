@@ -7,7 +7,8 @@
 //
 
 #include "Digital_Ressource.hpp"
-#include <stdio.h>
+#include <fstream>
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -54,7 +55,6 @@ string Digital_Ressource::getPath(){
 	return path;
 }
 
-
 					/////////////
 					// Mutator //
 					/////////////
@@ -62,3 +62,14 @@ string Digital_Ressource::getPath(){
 					//////////
 					// Else //
 					//////////
+
+void Digital_Ressource::save(ofstream &saving){
+	Ressource::save(saving);
+	saving<<type<<size<<path;
+}
+
+void Digital_Ressource::display(){
+	Ressource::display();
+	cout<<type<<size<<path;
+}
+

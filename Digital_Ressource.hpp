@@ -9,7 +9,7 @@
 #ifndef Digital_Ressource_hpp
 #define Digital_Ressource_hpp
 
-#include <iostream>
+#include <stdio.h>
 #include <string>
 #include "Ressource.hpp"
 
@@ -22,8 +22,7 @@ public:
 	Digital_Ressource(std::string _title, std::string _author, doc_type _type, int _size, std::string _path);
 	~Digital_Ressource();
 
-	virtual void save(std::ofstream &saving);
-	virtual void display();
+    virtual std::string save();
 	
 	doc_type getType();
 	int getSize();

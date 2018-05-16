@@ -9,7 +9,7 @@
 #ifndef Magazine_hpp
 #define Magazine_hpp
 
-#include <iostream>
+#include <stdio.h>
 #include <string>
 #include "Book.hpp"
 
@@ -22,9 +22,7 @@ public:
 	Magazine(std::string _editor, int _articles);
 	~Magazine();
 
-	virtual void save(std::ofstream &saving);
-	virtual void display();
-
+    virtual std::string save();
 	
 	std::string getEditors();
 	int getArticles();

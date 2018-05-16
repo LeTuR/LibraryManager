@@ -9,7 +9,7 @@
 #ifndef Ressource_hpp
 #define Ressource_hpp
 
-#include <iostream>
+#include <stdio.h>
 #include <string>
 
 class Ressource{
@@ -26,15 +26,12 @@ public:
 	Ressource(std::string _title, std::string _author);
 	~Ressource();
 
-	virtual void save(std::ofstream &saving);
-	virtual void display();
-
+    virtual std::string save();
 	
 	std::string getTitle();
 	std::string getAuthor();
 	bool getDisponibility();
 	int getId();
-	std::string getInfo();
 };
 
 #endif /* Ressource_hpp */

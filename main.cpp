@@ -6,31 +6,14 @@
 //  Copyright © 2018 Cesare-Herriau. All rights reserved.
 //
 
-#include "Commands.hpp"
-#include "Ressource.hpp"
-#include "Book.hpp"
-#include "CD.hpp"
-#include "Digital_Ressource.hpp"
-#include "VHS.hpp"
-#include "Magazine.hpp"
-#include "DVD.hpp"
-#include "Library.hpp"
 #include <iostream>
 #include "Commands.hpp"
 
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-	
-	Library *l = new Library();
-	Book *r = new Book("title", "author", 3, "publication", "collection", "summary");
-	l->addRessource(r);
-	
 	string input;
 	string type;
-	string filename;
-	int id;
-
 	int end = 0;
 	cout << "Welcome to the Library Manager!\n";
 	while(end == 0){
@@ -50,16 +33,15 @@ int main(int argc, const char * argv[]) {
 		
 		else if (input == "ADD"){
 			cin>>type;
-			add(l, type);
+			add(type);
 		}
 		
 		else if (input == "LOAD"){
-			load(l);
+			load();
 		}
 		
 		else if (input == "SAVE"){
-			cin>>filename;
-			save(l, filename);
+			
 		}
 		
 		else if (input == "SEARCH"){
@@ -75,8 +57,7 @@ int main(int argc, const char * argv[]) {
 		}
 		
 		else if (input == "SHOW"){
-			cin>>id;
-			show(l, id);
+			
 		}
 		
 		else if (input == "DELETE"){

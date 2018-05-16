@@ -9,7 +9,7 @@
 #ifndef VHS_hpp
 #define VHS_hpp
 
-#include <iostream>
+#include <stdio.h>
 #include <string>
 #include "Ressource.hpp"
 
@@ -25,9 +25,8 @@ public:
 	VHS(int _duration, std::string _studio);
 	~VHS();
 
-	virtual void save(std::ofstream &saving);
-	virtual void display();
-
+    virtual std::string save();
+	
 	int getDuration();
 	std::string getStudio();
 };

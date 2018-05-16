@@ -7,8 +7,7 @@
 //
 
 #include "Book.hpp"
-#include <fstream>
-#include <iostream>
+#include <stdio.h>
 #include <string>
 
 using namespace std;
@@ -61,6 +60,11 @@ string Book::getSummary(){
 	return summary;
 }
 
+void Book::save(){
+    Ressource::save();
+    cout<<pages<<publication<<collection<<summary;
+}
+
 					/////////////
 					// Mutator //
 					/////////////
@@ -68,14 +72,3 @@ string Book::getSummary(){
 					//////////
 					// Else //
 					//////////
-
-void Book::save(ofstream &saving){
-	Ressource::save(saving);
-	saving<<pages<<publication<<collection<<summary;
-}
-
-void Book::display(){
-	Ressource::display();
-	cout<<pages<<publication<<collection<<summary;
-}
-

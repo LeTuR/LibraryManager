@@ -1,14 +1,13 @@
 //
-//  DVD.cpp
+//  CD.cpp
 //  LibraryManager
 //
 //  Created by MagicLetur on 12/04/2018.
 //  Copyright © 2018 Cesare-Herriau. All rights reserved.
 //
 
-#include "DVD.hpp"
-#include <fstream>
-#include <iostream>
+#include "CD.hpp"
+#include <stdio.h>
 #include <string>
 
 using namespace std;
@@ -21,29 +20,42 @@ using namespace std;
 					// Constructor //
 					/////////////////
 
-DVD::DVD(){
+CD::CD(){
+	duration = 0;
 	chapters = 0;
+	studio = "Unknown";
 }
 
-DVD::	DVD(std::string _title, std::string _author, int _duration, std::string _studio, int _chapters){
-	VHS(_title, _author, _duration, _studio);
+CD::CD(string _title, string _author, int _duration, int _chapters, string _studio){
+	Ressource(_title, _author);
+	duration = _duration;
 	chapters = _chapters;
+	studio = _studio;
 }
 
 					////////////////
 					// Destructor //
 					////////////////
-
-DVD::~DVD(){
+CD::~CD(){
 	
 }
-
 					//////////////
 					// Accessor //
 					//////////////
 
-int DVD::getChapters(){
+int CD::getDuration(){
+	return duration;
+}
+int CD::getChapters(){
 	return chapters;
+}
+string CD::getStudio(){
+	return studio;
+}
+
+void CD::save(){
+    Ressource::save();
+    cout<<duration<<chapters<<studio;
 }
 
 					/////////////
@@ -53,13 +65,3 @@ int DVD::getChapters(){
 					//////////
 					// Else //
 					//////////
-
-void DVD::save(ofstream &saving){
-	VHS::save(saving);
-	saving<<chapters;
-}
-
-void DVD::display(){
-	VHS::display();
-	cout<<chapters;
-}
