@@ -9,6 +9,8 @@ using namespace std;
 					// Initialization //
 					////////////////////
 
+int Library::ressource_counter = 0;
+
 					/////////////////
 					// Constructor //
 					/////////////////
@@ -27,7 +29,9 @@ Library::~Library(){
 					//////////////
 					// Accessor //
 					//////////////
-
+int Library::getRessource_counter(){
+	return ressource_counter;
+}
 					/////////////
 					// Mutator //
 					/////////////
@@ -38,6 +42,7 @@ Library::~Library(){
 
 void Library::addRessource(Ressource *r){
 	listRessources.push_back(*r);
+	ressource_counter++;
 }
 
 void Library::showRessource(int id){

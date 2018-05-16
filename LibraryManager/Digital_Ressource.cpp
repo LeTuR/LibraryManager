@@ -23,7 +23,11 @@ using namespace std;
 
 
 Digital_Ressource::Digital_Ressource(string _title, string _author, doc_type _type, int _size, string _path){
-	Ressource(_title, _author);
+	title = _title;
+	author = _author;
+	free = true;
+	id = id_counter;
+	id_counter++;
 	type = _type;
 	size = _size;
 	path = _path;
@@ -65,11 +69,11 @@ string Digital_Ressource::getPath(){
 
 void Digital_Ressource::save(ofstream &saving){
 	Ressource::save(saving);
-	saving<<type<<size<<path;
+	saving<<type<<" "<<size<<" "<<path;
 }
 
 void Digital_Ressource::display(){
 	Ressource::display();
-	cout<<type<<size<<path;
+	cout<<type<<" "<<size<<" "<<path;
 }
 

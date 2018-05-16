@@ -17,6 +17,9 @@
 class Library{
 		
 public:
+	
+	int static ressource_counter;
+	
 	Library();
 	~Library();
 	void addRessource(Ressource *r);
@@ -26,6 +29,9 @@ public:
 	void clear();
 	void showId(int id);
 	void showRessource(int id);
+	
+	int getRessource_counter();
+	
 	std::vector<Ressource> listRessources;
 	};
 

@@ -26,7 +26,13 @@ DVD::DVD(){
 }
 
 DVD::	DVD(std::string _title, std::string _author, int _duration, std::string _studio, int _chapters){
-	VHS(_title, _author, _duration, _studio);
+	title = _title;
+	author = _author;
+	free = true;
+	id = id_counter;
+	id_counter++;
+	duration = _duration;
+	studio = _studio;
 	chapters = _chapters;
 }
 
@@ -56,10 +62,10 @@ int DVD::getChapters(){
 
 void DVD::save(ofstream &saving){
 	VHS::save(saving);
-	saving<<chapters;
+	saving<<" "<<chapters;
 }
 
 void DVD::display(){
 	VHS::display();
-	cout<<chapters;
+	cout<<" "<<chapters;
 }

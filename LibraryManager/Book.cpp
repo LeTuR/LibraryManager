@@ -22,6 +22,7 @@ using namespace std;
 					/////////////////
 
 Book::Book(){
+	Ressource();
 	pages = 0;
 	publication = "Unknown";
 	collection = "Unknown";
@@ -29,7 +30,11 @@ Book::Book(){
 }
 
 Book::Book(string _title, string _author, int _pages, string _publication, string _collection, string _summary){
-	Ressource(_title, _author);
+	title = _title;
+	author = _author;
+	free = true;
+	id = id_counter;
+	id_counter++;
 	pages = _pages;
 	publication = _publication;
 	collection = _collection;
@@ -71,11 +76,11 @@ string Book::getSummary(){
 
 void Book::save(ofstream &saving){
 	Ressource::save(saving);
-	saving<<pages<<publication<<collection<<summary;
+	saving<<pages<<" "<<publication<<" "<<collection<<" "<<summary;
 }
 
 void Book::display(){
 	Ressource::display();
-	cout<<pages<<publication<<collection<<summary;
+	cout<<pages<<" "<<publication<<" "<<collection<<" "<<summary;
 }
 

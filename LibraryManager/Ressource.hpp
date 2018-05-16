@@ -14,7 +14,7 @@
 
 class Ressource{
 
-private:
+protected:
 	static int id_counter;
 public:
 	std::string title;

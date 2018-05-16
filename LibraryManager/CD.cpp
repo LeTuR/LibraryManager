@@ -28,7 +28,11 @@ CD::CD(){
 }
 
 CD::CD(string _title, string _author, int _duration, int _chapters, string _studio){
-	Ressource(_title, _author);
+	title = _title;
+	author = _author;
+	free = true;
+	id = id_counter;
+	id_counter++;
 	duration = _duration;
 	chapters = _chapters;
 	studio = _studio;
@@ -64,10 +68,10 @@ string CD::getStudio(){
 
 void CD::save(ofstream &saving){
 	Ressource::save(saving);
-	saving<<duration<<chapters<<studio;
+	saving<<duration<<" "<<chapters<<" "<<studio;
 }
 
 void CD::display(){
 	Ressource::display();
-	cout<<duration<<chapters<<studio;
+	cout<<duration<<" "<<chapters<<" "<<studio;
 }

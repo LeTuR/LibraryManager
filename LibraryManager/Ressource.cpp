@@ -81,9 +81,9 @@ string Ressource::getInfo(){
 					//////////
 
 void Ressource::save(ofstream &saving){
-	saving<<title<<author<<id<<free;
+	saving<<title<<" "<<author<<" "<<id<<" "<<free;
 }
 
 void Ressource::display(){
-	cout<<title<<author<<id<<free;
+	cout<<title<<" "<<author<<" "<<id<<" "<<free;
 }

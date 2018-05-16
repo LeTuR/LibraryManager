@@ -21,14 +21,14 @@
 
 using namespace std;
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////show////////////////////////////////////////////////////////
 
 void show(Library *l, int id){
-	cout<<((l->listRessources)[id]).getTitle();
+	((l->listRessources)[id]).display();
 	cout<<"\n";
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////add////////////////////////////////////////////////////////
 
 void add(Library *l, string type){
 
@@ -75,6 +75,7 @@ void add(Library *l, string type){
             cout<<"How many articles?\n";
             cin>>articles;
             Magazine *r = new Magazine(title, author, pages, publication, collection, summary, editor, articles);
+			cout<<r->getTitle();
             l->addRessource(r);
             cout<<"Magazine succefully added!\n";
         }
@@ -135,6 +136,8 @@ void add(Library *l, string type){
         }
     }
 }
+
+//////////////////////////////////////////////////////////////load/////////////////////////////////////////////////////////////
 
 void load(Library *l){
     string path;
@@ -215,17 +218,17 @@ void load(Library *l){
     loading.close();
 }
 
+///////////////////////////////////////////////////////////////////save////////////////////////////////////////////////////////
 
 void save(Library *l, string filename){
 
     ofstream saving(filename, ios::out | ios::trunc);
-    int i=0;
-	
     if(saving)
     {
-		((l->listRessources)[i++]).save(saving);
-		saving<<"TEST";
-		saving.close();
+		for(int i = 0; i<(l->getRessource_counter()); i++){
+			((l->listRessources)[i]).save(saving);
+			saving.close();
+		}
     }
 
     else

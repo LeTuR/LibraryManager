@@ -23,15 +23,13 @@ using namespace std;
 int main(int argc, const char * argv[]) {
 	
 	Library *l = new Library();
-	Book *r = new Book("title", "author", 3, "publication", "collection", "summary");
-	l->addRessource(r);
 	
 	string input;
 	string type;
 	string filename;
 	int id;
-
 	int end = 0;
+	
 	cout << "Welcome to the Library Manager!\n";
 	while(end == 0){
 		cout << "Please enter a command, to see the list of commands type HELP, if you want to exit type EXIT\n";
