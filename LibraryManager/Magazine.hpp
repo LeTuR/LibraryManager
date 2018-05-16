@@ -22,8 +22,8 @@ public:
 	Magazine(std::string _editor, int _articles);
 	~Magazine();
 
-	virtual void save(std::ofstream &saving);
-	virtual void display();
+	void save(std::ofstream &saving);
+	void display();
 
 	
 	std::string getEditors();

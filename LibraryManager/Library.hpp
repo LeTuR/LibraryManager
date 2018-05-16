@@ -32,7 +32,7 @@ public:
 	
 	int getRessource_counter();
 	
-	std::vector<Ressource> listRessources;
+	std::vector<Ressource*> listRessources;
 	};
 
 #endif /* Library_hpp */

@@ -41,10 +41,10 @@ int Library::getRessource_counter(){
 					//////////
 
 void Library::addRessource(Ressource *r){
-	listRessources.push_back(*r);
+	listRessources.push_back(r);
 	ressource_counter++;
 }
 
 void Library::showRessource(int id){
-	listRessources[id].getInfo();
+	listRessources[id]->getInfo();
 }
