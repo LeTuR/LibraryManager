@@ -67,7 +67,8 @@ bool Ressource::getDisponibility(){
 }
 
 string Ressource::getInfo(){
-	
+	string info;
+	return info;
 }
 
 					/////////////

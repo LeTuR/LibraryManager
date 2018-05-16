@@ -49,5 +49,5 @@ void Library::addRessource(Ressource r){
 }
 
 void Library::showRessource(int id){
-	listRessources[id].showInfo();
+	listRessources[id].getInfo();
 }
