@@ -26,7 +26,8 @@ CD::CD(){
 	studio = "Unknown";
 }
 
-CD::CD(int _duration, int _chapters, string _studio){
+CD::CD(string _title, string _author, int _duration, int _chapters, string _studio){
+	Ressource(_title, _author);
 	duration = _duration;
 	chapters = _chapters;
 	studio = _studio;
@@ -50,6 +51,11 @@ int CD::getChapters(){
 }
 string CD::getStudio(){
 	return studio;
+}
+
+void CD::save(){
+    Ressource::save();
+    cout<<duration<<chapters<<studio;
 }
 
 					/////////////

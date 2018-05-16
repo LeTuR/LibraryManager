@@ -9,6 +9,7 @@
 #include "Library.hpp"
 #include <stdio.h>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -20,10 +21,17 @@ using namespace std;
 					// Constructor //
 					/////////////////
 
+Library::Library(){
+	
+}
+
 					////////////////
 					// Destructor //
 					////////////////
 
+Library::~Library(){
+	
+}
 					//////////////
 					// Accessor //
 					//////////////
@@ -35,3 +43,8 @@ using namespace std;
 					//////////
 					// Else //
 					//////////
+
+void Library::addRessource(Ressource r){
+	listRessources.push_back(r);
+}
+

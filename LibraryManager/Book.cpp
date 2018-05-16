@@ -27,7 +27,8 @@ Book::Book(){
 	summary = "Unknown";
 }
 
-Book::Book(int _pages, string _publication, string _collection, string _summary){
+Book::Book(string _title, string _author, int _pages, string _publication, string _collection, string _summary){
+	Ressource(_title, _author);
 	pages = _pages;
 	publication = _publication;
 	collection = _collection;
@@ -57,6 +58,11 @@ string Book::getCollection(){
 }
 string Book::getSummary(){
 	return summary;
+}
+
+void Book::save(){
+    Ressource::save();
+    cout<<pages<<publication<<collection<<summary;
 }
 
 					/////////////

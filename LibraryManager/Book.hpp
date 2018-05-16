@@ -24,8 +24,11 @@ protected:
 public:
 	
 	Book();
+	Book(std::string _title, std::string _author, int _pages, std::string _publication, std::string _collection, std::string _summary);
 	Book(int _pages, std::string _publication, std::string _collection, std::string _summary);
 	~Book();
+
+    virtual std::string save();
 	
 	int getPages();
 	std::string getPublication();

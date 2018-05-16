@@ -17,8 +17,11 @@ class DVD : public VHS{
 public:
 	
 	DVD();
+	DVD(std::string _title, std::string _author, int _duration, std::string _studio, int _chapters);
 	DVD(int _chapters);
 	~DVD();
+
+    virtual std::string save();
 	
 	int getChapters();
 	

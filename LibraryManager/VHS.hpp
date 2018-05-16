@@ -21,8 +21,11 @@ protected:
 	
 public:
 	VHS();
+	VHS(std::string _title, std::string _author, int _duration, std::string _studio);
 	VHS(int _duration, std::string _studio);
 	~VHS();
+
+    virtual std::string save();
 	
 	int getDuration();
 	std::string getStudio();

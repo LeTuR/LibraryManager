@@ -25,7 +25,8 @@ Magazine::Magazine(){
 	articles = 0;
 }
 
-Magazine::Magazine(string _editor, int _articles){
+Magazine::Magazine(string _title, string _author, int _pages, string _publication, string _collection, string _summary, string _editor, int _articles){
+	Book(_title, _author, _pages, _publication, _collection, _summary);
 	editor = _editor;
 	articles = _articles;
 }
@@ -48,6 +49,11 @@ string Magazine::getEditors(){
 
 int Magazine::getArticles(){
 	return articles;
+}
+
+void Magazine::save(){
+    Book::save();
+    cout<<editor<<articles;
 }
 
 					/////////////

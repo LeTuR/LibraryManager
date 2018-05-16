@@ -66,6 +66,10 @@ bool Ressource::getDisponibility(){
 	return free;
 }
 
+void Ressource::save(){
+    cout<<title<<author<<id<<free;
+}
+
 					/////////////
 					// Mutator //
 					/////////////

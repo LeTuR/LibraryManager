@@ -19,7 +19,10 @@ class Digital_Ressource : public Ressource{
 	
 public:
 	Digital_Ressource();
+	Digital_Ressource(std::string _title, std::string _author, doc_type _type, int _size, std::string _path);
 	~Digital_Ressource();
+
+    virtual std::string save();
 	
 	doc_type getType();
 	int getSize();

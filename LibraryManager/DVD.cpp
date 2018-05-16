@@ -24,7 +24,8 @@ DVD::DVD(){
 	chapters = 0;
 }
 
-DVD::DVD(int _chapters){
+DVD::	DVD(std::string _title, std::string _author, int _duration, std::string _studio, int _chapters){
+	VHS(_title, _author, _duration, _studio);
 	chapters = _chapters;
 }
 
@@ -42,6 +43,11 @@ DVD::~DVD(){
 
 int DVD::getChapters(){
 	return chapters;
+}
+
+void DVD::save(){
+    VHS::save();
+    cout<<chapters;
 }
 
 					/////////////

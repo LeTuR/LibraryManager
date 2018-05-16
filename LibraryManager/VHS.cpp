@@ -25,7 +25,8 @@ VHS::VHS(){
 	studio = "Unknown";
 }
 
-VHS::VHS(int _duration, string _studio){
+VHS::VHS(string _title, string _author, int _duration, string _studio){
+	Ressource(_title, _author);
 	duration = _duration;
 	studio = _studio;
 }
@@ -48,6 +49,11 @@ int VHS::getDuration(){
 
 string VHS::getStudio(){
 	return studio;
+}
+
+void VHS::save(){
+    Ressource::save();
+    cout<<duration<<studio;
 }
 
 					/////////////

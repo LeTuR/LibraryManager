@@ -23,8 +23,12 @@ private:
 	
 public:
 	CD();
+	CD(std::string _title, std::string _author, int _duration, int _chapters, std::string _studio);
 	CD(int _duration, int _chapters, std::string _studio);
 	~CD();
+
+    virtual std::string save();
+
 	int getDuration();
 	int getChapters();
 	std::string getStudio();

@@ -25,6 +25,8 @@ public:
 	Ressource();
 	Ressource(std::string _title, std::string _author);
 	~Ressource();
+
+    virtual std::string save();
 	
 	std::string getTitle();
 	std::string getAuthor();

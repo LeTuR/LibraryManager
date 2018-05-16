@@ -20,13 +20,44 @@ using namespace std;
 					// Constructor //
 					/////////////////
 
+
+Digital_Ressource::Digital_Ressource(string _title, string _author, doc_type _type, int _size, string _path){
+	Ressource(_title, _author);
+	type = _type;
+	size = _size;
+	path = _path;
+}
+
 					////////////////
 					// Destructor //
 					////////////////
 
+Digital_Ressource::~Digital_Ressource(){
+	
+}
+
+
 					//////////////
 					// Accessor //
 					//////////////
+
+
+doc_type Digital_Ressource::getType(){
+	return type;
+}
+
+int Digital_Ressource::getSize(){
+	return size;
+}
+
+string Digital_Ressource::getPath(){
+	return path;
+}
+
+void Digital_Ressource::save(){
+    Ressource::save();
+    cout<<type<<size<<path;
+}
 
 					/////////////
 					// Mutator //
