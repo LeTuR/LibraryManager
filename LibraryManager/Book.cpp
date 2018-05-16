@@ -34,7 +34,6 @@ Book::Book(string _title, string _author, int _pages, string _publication, strin
 	author = _author;
 	free = true;
 	id = id_counter;
-	id_counter++;
 	pages = _pages;
 	publication = _publication;
 	collection = _collection;

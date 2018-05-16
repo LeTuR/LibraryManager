@@ -36,7 +36,6 @@ Ressource::Ressource(string _title, string _author){
 	author = _author;
 	free = true;
 	id = id_counter;
-	id_counter++;
 }
 
 					////////////////
@@ -44,7 +43,7 @@ Ressource::Ressource(string _title, string _author){
 					////////////////
 
 Ressource::~Ressource(){
-	//id_counter--;
+	id_counter--;
 }
 
 					//////////////
@@ -81,9 +80,9 @@ string Ressource::getInfo(){
 					//////////
 
 void Ressource::save(ofstream &saving){
-	saving<<title<<" "<<author<<" "<<id<<" "<<free;
+	saving<<title<<" "<<author<<" ";
 }
 
 void Ressource::display(){
-	cout<<title<<" "<<author<<" "<<id<<" "<<free;
+	cout<<id<<" "<<title<<" "<<author<<" ";
 }

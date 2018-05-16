@@ -31,7 +31,6 @@ VHS::VHS(string _title, string _author, int _duration, string _studio){
 	author = _author;
 	free = true;
 	id = id_counter;
-	id_counter++;
 	duration = _duration;
 	studio = _studio;
 }

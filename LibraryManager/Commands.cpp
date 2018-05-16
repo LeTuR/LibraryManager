@@ -203,7 +203,6 @@ void add(Library *l, string type){
 
 void load(Library *l){
     string path;
-    cout<<"Please type the path of the file you want to load"<<"\n";
     cin>>path;
     string const loadfile(path);
 
@@ -227,7 +226,7 @@ void load(Library *l){
         string doc_type;
         int size;
         string path;
-        string line;
+        string line; 
         //VHS and DVD
         while(getline(loading, line)){
             //RESSOURCE
@@ -296,4 +295,12 @@ void save(Library *l, string filename){
     else
         cerr << "Cannot create the file !" << endl;
 
+}
+
+/*--------------------------------------list-------------------------------------*/
+
+void list(Library *l){
+	for(int i = 0; i<(l->getRessource_counter()); i++){
+		show(l,i);
+	}
 }

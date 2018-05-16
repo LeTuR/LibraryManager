@@ -69,7 +69,7 @@ int main(int argc, const char * argv[]) {
 		}
 		
 		else if (input == "LIST"){
-			
+			list(l);
 		}
 		
 		else if (input == "SHOW"){

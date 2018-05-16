@@ -32,7 +32,6 @@ CD::CD(string _title, string _author, int _duration, int _chapters, string _stud
 	author = _author;
 	free = true;
 	id = id_counter;
-	id_counter++;
 	duration = _duration;
 	chapters = _chapters;
 	studio = _studio;
