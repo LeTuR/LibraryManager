@@ -24,7 +24,6 @@ public:
 
 	void save(std::ofstream &saving);
 	void display();
-
 	
 	std::string getEditors();
 	int getArticles();
