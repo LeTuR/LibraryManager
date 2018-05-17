@@ -9,25 +9,27 @@
 #ifndef DVD_hpp
 #define DVD_hpp
 
-#include <stdio.h>
+#include <iostream>
 #include "VHS.hpp"
 
-class DVD : public VHS{
-	
+class DVD : public VHS {
+
 public:
-	
+
 	DVD();
 	DVD(std::string _title, std::string _author, int _duration, std::string _studio, int _chapters);
 	DVD(int _chapters);
 	~DVD();
 
-    virtual std::string save();
-	
+	virtual void save(std::ofstream &saving);
+	virtual void display();
+
+
 	int getChapters();
-	
+
 private:
 	int chapters;
-	
+
 };
 
 #endif /* DVD_hpp */

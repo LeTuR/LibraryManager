@@ -7,62 +7,71 @@
 //
 
 #include "Digital_Ressource.hpp"
-#include <stdio.h>
+#include <fstream>
+#include <iostream>
 #include <string>
 
 using namespace std;
 
-					////////////////////
-					// Initialization //
-					////////////////////
+////////////////////
+// Initialization //
+////////////////////
 
-					/////////////////
-					// Constructor //
-					/////////////////
+/////////////////
+// Constructor //
+/////////////////
 
 
-Digital_Ressource::Digital_Ressource(string _title, string _author, doc_type _type, int _size, string _path){
-	Ressource(_title, _author);
+Digital_Ressource::Digital_Ressource(string _title, string _author, doc_type _type, int _size, string _path) {
+	title = _title;
+	author = _author;
+	free = true;
+	id = id_counter;
 	type = _type;
 	size = _size;
 	path = _path;
 }
 
-					////////////////
-					// Destructor //
-					////////////////
+////////////////
+// Destructor //
+////////////////
 
-Digital_Ressource::~Digital_Ressource(){
-	
+Digital_Ressource::~Digital_Ressource() {
+
 }
 
 
-					//////////////
-					// Accessor //
-					//////////////
+//////////////
+// Accessor //
+//////////////
 
 
-doc_type Digital_Ressource::getType(){
+doc_type Digital_Ressource::getType() {
 	return type;
 }
 
-int Digital_Ressource::getSize(){
+int Digital_Ressource::getSize() {
 	return size;
 }
 
-string Digital_Ressource::getPath(){
+string Digital_Ressource::getPath() {
 	return path;
 }
 
-void Digital_Ressource::save(){
-    Ressource::save();
-    cout<<type<<size<<path;
+/////////////
+// Mutator //
+/////////////
+
+//////////
+// Else //
+//////////
+
+void Digital_Ressource::save(ofstream &saving) {
+	Ressource::save(saving);
+	saving << type << " " << size << " " << path;
 }
 
-					/////////////
-					// Mutator //
-					/////////////
-
-					//////////
-					// Else //
-					//////////
+void Digital_Ressource::display() {
+	Ressource::display();
+	cout << type << " " << size << " " << path;
+}
