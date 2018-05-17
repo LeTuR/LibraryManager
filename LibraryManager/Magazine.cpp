@@ -31,7 +31,6 @@ Magazine::Magazine(string _title, string _author, int _pages, string _publicatio
 	author = _author;
 	free = true;
 	id = id_counter;
-	id_counter++;
 	pages = _pages;
 	publication = _publication;
 	collection = _collection;

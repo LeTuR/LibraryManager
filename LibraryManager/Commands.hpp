@@ -27,6 +27,7 @@ void add(Library *l, std::string type);
 void load(Library *l);
 void show(Library *l, int id);
 void save(Library *l, std::string filename);
+void list(Library *l);
 
 
 #endif /* Commands_hpp */

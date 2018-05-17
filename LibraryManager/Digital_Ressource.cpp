@@ -27,7 +27,6 @@ Digital_Ressource::Digital_Ressource(string _title, string _author, doc_type _ty
 	author = _author;
 	free = true;
 	id = id_counter;
-	id_counter++;
 	type = _type;
 	size = _size;
 	path = _path;

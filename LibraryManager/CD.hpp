@@ -28,7 +28,7 @@ public:
 	~CD();
 
 	virtual void save(std::ofstream &saving);
-	virtual void display();
+	 void display();
 
 	int getDuration();
 	int getChapters();

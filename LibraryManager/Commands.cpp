@@ -21,41 +21,49 @@
 
 using namespace std;
 
-///////////////////////////////////////////////////////////////////show////////////////////////////////////////////////////////
+/*---------------------show-----------------------------*/
 
 void show(Library *l, int id){
 	if(id < l->getRessource_counter() and id>=0){
-		((l->listRessources)[id]).display();
+		((l->listRessources)[id])->display();
 	}
 	else{
-		cerr<<"Cette ID n'éxiste pas."<<"\n";
+		cerr<<"This ID doesn't exist."<<"\n";
 	}
 	cout<<"\n";
 }
 
-////////////////////////////////////////////////////////////////////add////////////////////////////////////////////////////////
+/*-------------------------add------------------------------*/
 
 void add(Library *l, string type){
-
+	
+	//Verification flag
+	int test = 1;
+	
+	//Ressources
     string input;
     string title;
     string author;
     //Book and Magazine
+	
     string spages;
-	int pages;
+	int pages = 0;
     string publication;
     string collection;
     string summary;
     string editor;
 	string sarticles;
-    int articles;
+	int articles = 0;
     //CD
-    int duration;
-    int chapters;
+	string sduration;
+	int duration = 0;
+	string schapters;
+	int chapters = 0;
     string studio;
     //Digital_ressource
     string doc_type;
-    int size;
+	string ssize;
+    int size = 0;
     string path;
     //VHS and DVD
 
@@ -67,13 +75,18 @@ void add(Library *l, string type){
 
     //BOOK
     if (type == "Book" or type == "Magazine"){
-        cout<<"How many pages?\n";
-        cin>>spages;
-		try {
-			pages = stoi(spages);
-		} catch (const std::invalid_argument a) {
-			cerr<<a.what()<<"\n";
+		//Testing for a valid input
+		while (test) {
+			cout<<"How many pages?\n";
+			cin>>spages;
+			try {
+				pages = stoi(spages);
+				test = 0;
+			} catch (const std::invalid_argument a) {
+				cerr<<"Please enter a valid number"<<"\n";
+			}
 		}
+		test = 1;
         cout<<"Date of publication (MM/DD/YYYY)?\n";
         cin>>publication;
         cout<<"What is the collection?\n";
@@ -83,10 +96,20 @@ void add(Library *l, string type){
         //MAGAZINE
         if(type == "Magazine"){
             cout<<"Who is the editor?\n";
-            cin>>editor;
-            cout<<"How many articles?\n";
-            cin>>articles;
-            Magazine *r = new Magazine(title, author, pages, publication, collection, summary, editor, articles);
+			cin>>editor;
+			//Testing for a valid input
+			while (test) {
+				cout<<"How many articles?\n";
+				cin>>sarticles;
+				try {
+					articles = stoi(sarticles);
+					test = 0;
+				} catch (const std::invalid_argument a) {
+					cerr<<"Please enter a valid number"<<"\n";
+				}
+			}
+			test = 1;
+			Magazine *r = new Magazine(title, author, pages, publication, collection, summary, editor, articles);
             l->addRessource(r);
             cout<<"Magazine succefully added!\n";
         }
@@ -101,33 +124,61 @@ void add(Library *l, string type){
     else if (type == "Digital_Ressource"){
         cout<<"What is the type of document PDF, DOC or PTT?\n";
         cin>>doc_type;
-        cout<<"What is the size?\n";
-        cin>>size;
+		while (test) {
+			cout<<"What is the size?\n";
+			cin>>ssize;
+			try {
+				size = stoi(ssize);
+				test = 0;
+			} catch (const std::invalid_argument a) {
+				cerr<<"Please enter a valid number"<<"\n";
+			}
+		}
+		test = 1;
+		
         cout<<"What is the path of the document?\n";
         cin>>path;
     }
 
     //VHS
     else if ((type == "VHS") or (type == "DVD") or (type == "CD")){
-            cout<<"What is the duration (in seconds)\n";
-            cin>>duration;
-            cout<<"What is the studio?\n";
-            cin>>studio;
+		while (test) {
+			cout<<"What is the duration (in seconds)\n";
+			cin>>sduration;
+			try {
+				duration = stoi(sduration);
+				test = 0;
+			} catch (const std::invalid_argument a) {
+				cerr<<"Please enter a valid number"<<"\n";
+			}
+		}
+		test = 1;
+		cout<<"What is the studio?\n";
+		cin>>studio;
         //DVD
         if ((type == "DVD") or (type == "CD")){
-                cout<<"How many chapters?\n";
-                cin>>chapters;
-                if (type == "DVD") {
-                    DVD *r = new DVD(title, author, duration, studio, chapters);
-                    l->addRessource(r);
-                    cout<<"DVD succefully added!\n";
-                }
-                //CD
-                else {
-                    CD *r = new CD(title, author, duration, chapters, studio);
-                    l->addRessource(r);
-                    cout<<"CD succefully added!\n";
-                }
+			while (test) {
+				cout<<"How many chapters?\n";
+				cin>>schapters;
+				try {
+					chapters = stoi(schapters);
+					test = 0;
+				} catch (const std::invalid_argument a) {
+					cerr<<"Please enter a valid number"<<"\n";
+				}
+			}
+			test = 1;
+			if (type == "DVD") {
+				DVD *r = new DVD(title, author, duration, studio, chapters);
+				l->addRessource(r);
+				cout<<"DVD succefully added!\n";
+			}
+			//CD
+			else {
+				CD *r = new CD(title, author, duration, chapters, studio);
+				l->addRessource(r);
+				cout<<"CD succefully added!\n";
+			}
         }
             VHS *r = new VHS(title, author, duration, studio);
             l->addRessource(r);
@@ -148,11 +199,10 @@ void add(Library *l, string type){
     }
 }
 
-//////////////////////////////////////////////////////////////load/////////////////////////////////////////////////////////////
+/*--------------------------------load-----------------------------*/
 
 void load(Library *l){
     string path;
-    cout<<"Please type the path of the file you want to load"<<"\n";
     cin>>path;
     string const loadfile(path);
 
@@ -176,7 +226,7 @@ void load(Library *l){
         string doc_type;
         int size;
         string path;
-        string line;
+        string line; 
         //VHS and DVD
         while(getline(loading, line)){
             //RESSOURCE
@@ -229,7 +279,7 @@ void load(Library *l){
     loading.close();
 }
 
-///////////////////////////////////////////////////////////////////save////////////////////////////////////////////////////////
+/*-------------------------------------save---------------------------------*/
 
 void save(Library *l, string filename){
 
@@ -237,7 +287,7 @@ void save(Library *l, string filename){
     if(saving)
     {
 		for(int i = 0; i<(l->getRessource_counter()); i++){
-			((l->listRessources)[i]).save(saving);
+			((l->listRessources)[i])->save(saving);
 			saving.close();
 		}
     }
@@ -245,4 +295,12 @@ void save(Library *l, string filename){
     else
         cerr << "Cannot create the file !" << endl;
 
+}
+
+/*--------------------------------------list-------------------------------------*/
+
+void list(Library *l){
+	for(int i = 0; i<(l->getRessource_counter()); i++){
+		show(l,i);
+	}
 }
