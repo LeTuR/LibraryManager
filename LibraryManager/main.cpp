@@ -15,81 +15,23 @@
 #include "Magazine.hpp"
 #include "DVD.hpp"
 #include "Library.hpp"
-#include <iostream>
 #include "Commands.hpp"
+#include <stdio.h>
+#include <QApplication>
+#include <QPushButton>
 
 using namespace std;
 
-int main(int argc, const char * argv[]) {
+int main(int argc, char * argv[]) {
 	
 	Library *l = new Library();
 	
-	string input;
+    string input;
 	string type;
 	string filename;
 	int id;
-	int end = 0;
-	
-	cout << "Welcome to the Library Manager!\n";
-	while(end == 0){
-		cout << "Please enter a command, to see the list of commands type HELP, if you want to exit type EXIT\n";
-		cin>>input;
-		if (input == "HELP"){
-			cout << "--------------------\n";
-			cout << "List of commands:\n";
-			cout << "ADD   LOAD\n";
-			cout << "BYE   ADD     LOAD\n";
-			cout << "SAVE  SEARCH  CLEAR\n";
-			cout << "LIST  SHOW    DELETE\n";
-			cout << "RESET HELP    EXIT\n";
-			cout << "--------------------\n"<<"\n";
-			cout << "Please enter a command, to see the list of commands type HELP, if you want to exit type EXIT\n";
-		}
-		
-		else if (input == "ADD"){
-			cin>>type;
-			add(l, type);
-		}
-		
-		else if (input == "LOAD"){
-			load(l);
-		}
-		
-		else if (input == "SAVE"){
-			cin>>filename;
-			save(l, filename);
-		}
-		
-		else if (input == "SEARCH"){
-			
-		}
-		
-		else if (input == "CLEAR"){
-			
-		}
-		
-		else if (input == "LIST"){
-			list(l);
-		}
-		
-		else if (input == "SHOW"){
-			cin>>id;
-			show(l, id);
-		}
-		
-		else if (input == "DELETE"){
-			
-		}
-		
-		else if (input == "RESET"){
-			reset(l);
-		}
-		
-		else if (input == "EXIT"){
-			end = 1;
-					}
-	}
-	cout <<"\n"<< "Thanks for using Library Manager\n";
-	cout << "Goodbye!\n"<<"\n";
-	return 0;
+    QApplication app(argc, argv);
+    QPushButton bouton("Salut les Zéros, la forme ?");
+    bouton.show();
+    return app.exec();
 }

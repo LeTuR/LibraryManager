@@ -5,11 +5,14 @@
 #-------------------------------------------------
 
 QT       -= gui
+QT       += widgets
 
 TARGET = Library
 TEMPLATE = lib
 
 DEFINES += LIBRARY_LIBRARY
+
+
 
 SOURCES += \
     Book.cpp \
