@@ -1,4 +1,5 @@
 #include "Library.hpp"
+#include "Ressource.hpp"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -36,10 +37,16 @@ Library::~Library(){
 					// Else //
 					//////////
 
-void Library::addRessource(Ressource *r){
-	listRessources.push_back(*r);
+void Library::clearID(){
+	Ressource::id_counter = 0;
+	while(not(Ressource::ids.empty()))Ressource::ids.pop();
 }
 
-void Library::showRessource(int id){
-	listRessources[id].getInfo();
+void Library::addRessource(Ressource *r){
+	listRessources.push_back(r);
 }
+
+long Library::sizeRessources(){
+	return listRessources.size();
+}
+
