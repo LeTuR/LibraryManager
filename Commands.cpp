@@ -18,6 +18,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <limits>
 
 using namespace std;
 
@@ -26,13 +27,13 @@ using namespace std;
 void remove(Library *l, int id) {
 	if (id < l->getRessource_counter() and id >= 0) {
 		((l->listRessources)[id])->~Ressource();
-		/*for (int i = id+1; i <= l->getRessource_counter()-1; i++) {
+		((l->listRessources)[id])->RessourceReset(id);
+		for (int i = id+1; i <= l->getRessource_counter()-1; i++) {
 			(l->listRessources)[i]->id = (l->listRessources)[i]->id - 1;
 			(l->listRessources)[i-1] = (l->listRessources)[i];
 		}
-		((l->listRessources)[l->getRessource_counter()-1])->~Ressource();
-		l->getRessource_counter() = l->getRessource_counter()-1;*/
-
+		l->DecrementCounter();
+		(l->listRessources).pop_back();
 	}
 	else {
 		cerr << "This ID doesn't exist." << "\n";
@@ -231,6 +232,7 @@ void load(Library *l) {
 	string const loadfile(path);
 
 	ifstream loading(loadfile.c_str());
+
 	if (loading) {
 		string type;
 		string title;

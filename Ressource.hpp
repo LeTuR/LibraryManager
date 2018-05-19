@@ -28,6 +28,7 @@ public:
 
 	virtual void save(std::ofstream &saving);
 	virtual void display();
+	void RessourceReset(int _id);
 
 
 	std::string getTitle();

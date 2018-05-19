@@ -38,6 +38,8 @@ Ressource::Ressource(string _title, string _author) {
 	id = id_counter;
 }
 
+
+
 ////////////////
 // Destructor //
 ////////////////
@@ -85,4 +87,11 @@ void Ressource::save(ofstream &saving) {
 
 void Ressource::display() {
 	cout << id << " " << title << " " << author << " ";
+}
+
+void Ressource::RessourceReset(int _id){
+	title = "Unknown";
+	author = "Unknown";
+	free = true;
+	id = _id + 1;
 }

@@ -29,6 +29,7 @@ public:
 	void clear();
 	void showId(int id);
 	void showRessource(int id);
+	void DecrementCounter();
 
 	int getRessource_counter();
 

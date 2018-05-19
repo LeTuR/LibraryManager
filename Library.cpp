@@ -48,3 +48,7 @@ void Library::addRessource(Ressource *r) {
 void Library::showRessource(int id) {
 	listRessources[id]->getInfo();
 }
+
+void Library::DecrementCounter() {
+	ressource_counter--;
+}
