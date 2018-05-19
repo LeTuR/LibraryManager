@@ -22,6 +22,10 @@ using namespace std;
 					/////////////////
 
 DVD::DVD(){
+	title = "Unknown";
+	author = "Unknown";
+	free = true;
+	id = idSelect();
 	chapters = 0;
 }
 
@@ -29,7 +33,7 @@ DVD::	DVD(std::string _title, std::string _author, int _duration, std::string _s
 	title = _title;
 	author = _author;
 	free = true;
-	id = id_counter;
+	id = idSelect();
 	duration = _duration;
 	studio = _studio;
 	chapters = _chapters;

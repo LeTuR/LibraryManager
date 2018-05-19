@@ -22,6 +22,10 @@ using namespace std;
 					/////////////////
 
 CD::CD(){
+	title = "Unknown";
+	author = "Unknown";
+	free = true;
+	id = idSelect();
 	duration = 0;
 	chapters = 0;
 	studio = "Unknown";

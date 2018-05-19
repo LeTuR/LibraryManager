@@ -22,11 +22,24 @@ using namespace std;
 					/////////////////
 
 
+Digital_Ressource::Digital_Ressource(){
+	title = "Unknown";
+	author = "Unknown";
+	free = true;
+	id = idSelect();
+	title = "Unknown";
+	author = "Unknown";
+	free = true;
+	type = DOC;
+	size = 0;
+	path = "Unknown";
+}
+
 Digital_Ressource::Digital_Ressource(string _title, string _author, doc_type _type, int _size, string _path){
 	title = _title;
 	author = _author;
 	free = true;
-	id = id_counter;
+	id = idSelect();
 	type = _type;
 	size = _size;
 	path = _path;

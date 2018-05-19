@@ -82,7 +82,7 @@ int main(int argc, const char * argv[]) {
 		}
 		
 		else if (input == "RESET"){
-			
+			reset(l);
 		}
 		
 		else if (input == "EXIT"){

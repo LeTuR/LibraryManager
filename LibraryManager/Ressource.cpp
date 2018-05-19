@@ -10,6 +10,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <stack>
 
 using namespace std;
 
@@ -18,6 +19,7 @@ using namespace std;
 					////////////////////
 
 int Ressource::id_counter = 0;
+stack<int> Ressource::ids;
 
 					/////////////////
 					// Constructor //
@@ -27,15 +29,14 @@ Ressource::Ressource(){
 	title = "Unknown";
 	author = "Unknown";
 	free = true;
-	id = id_counter;
-	id_counter++;
+	id = idSelect();
 }
 
 Ressource::Ressource(string _title, string _author){
 	title = _title;
 	author = _author;
 	free = true;
-	id = id_counter;
+	id = idSelect();
 }
 
 					////////////////
@@ -43,7 +44,7 @@ Ressource::Ressource(string _title, string _author){
 					////////////////
 
 Ressource::~Ressource(){
-	id_counter--;
+	ids.push(id);
 }
 
 					//////////////
@@ -66,11 +67,6 @@ bool Ressource::getDisponibility(){
 	return free;
 }
 
-string Ressource::getInfo(){
-	string info;
-	return info;
-}
-
 					/////////////
 					// Mutator //
 					/////////////
@@ -78,6 +74,19 @@ string Ressource::getInfo(){
 					//////////
 					// Else //
 					//////////
+
+int Ressource::idSelect(){
+	int buff;
+	if (ids.empty()){
+		return (id_counter++);
+	}
+	else{
+		buff = ids.top();
+		ids.pop();
+		return buff;
+	}
+	return 0;
+}
 
 void Ressource::save(ofstream &saving){
 	saving<<title<<" "<<author<<" ";

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC86A8C120B053D400D85A93 /* app.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC86A8BF20B053D400D85A93 /* app.cpp */; };
 		DCC41B84207F4DA20096C806 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCC41B83207F4DA20096C806 /* main.cpp */; };
 		DCC41B8C207F4DFD0096C806 /* Library.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCC41B8A207F4DFD0096C806 /* Library.cpp */; };
 		DCC41B8F207F4E330096C806 /* Ressource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCC41B8D207F4E330096C806 /* Ressource.cpp */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		DC39CF9020A2E5E200666F86 /* libdata.data */ = {isa = PBXFileReference; lastKnownFileType = text; path = libdata.data; sourceTree = "<group>"; };
+		DC86A8BF20B053D400D85A93 /* app.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = app.cpp; sourceTree = "<group>"; };
 		DCC41B80207F4DA20096C806 /* LibraryManager */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LibraryManager; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCC41B83207F4DA20096C806 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		DCC41B8A207F4DFD0096C806 /* Library.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Library.cpp; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 		DCC41B82207F4DA20096C806 /* LibraryManager */ = {
 			isa = PBXGroup;
 			children = (
+				DC86A8BF20B053D400D85A93 /* app.cpp */,
 				DCC41B83207F4DA20096C806 /* main.cpp */,
 				DCE5F42820907A0E005D14AC /* Commands.cpp */,
 				DCE5F42920907A0E005D14AC /* Commands.hpp */,
@@ -171,6 +174,7 @@
 				DCE5F42A20907A0E005D14AC /* Commands.cpp in Sources */,
 				DCC41B92207F4E500096C806 /* Book.cpp in Sources */,
 				DCC41B84207F4DA20096C806 /* main.cpp in Sources */,
+				DC86A8C120B053D400D85A93 /* app.cpp in Sources */,
 				DCC41B9B207F4E820096C806 /* VHS.cpp in Sources */,
 				DCC41B8C207F4DFD0096C806 /* Library.cpp in Sources */,
 				DCC41B9E207F4E8D0096C806 /* DVD.cpp in Sources */,

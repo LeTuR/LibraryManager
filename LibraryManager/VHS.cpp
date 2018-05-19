@@ -22,6 +22,10 @@ using namespace std;
 					/////////////////
 
 VHS::VHS(){
+	title = "Unknown";
+	author = "Unknown";
+	free = true;
+	id = idSelect();
 	duration = 0;
 	studio = "Unknown";
 }
@@ -30,7 +34,7 @@ VHS::VHS(string _title, string _author, int _duration, string _studio){
 	title = _title;
 	author = _author;
 	free = true;
-	id = id_counter;
+	id = idSelect();
 	duration = _duration;
 	studio = _studio;
 }

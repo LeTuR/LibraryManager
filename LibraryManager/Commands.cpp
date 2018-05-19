@@ -24,7 +24,7 @@ using namespace std;
 /*---------------------show-----------------------------*/
 
 void show(Library *l, int id){
-	if(id < l->getRessource_counter() and id>=0){
+	if(id <(l->sizeRessources()) and id>=0){
 		((l->listRessources)[id])->display();
 	}
 	else{
@@ -286,10 +286,11 @@ void save(Library *l, string filename){
     ofstream saving(filename, ios::out | ios::trunc);
     if(saving)
     {
-		for(int i = 0; i<(l->getRessource_counter()); i++){
+		for(int i = 0; i<(l->sizeRessources()-1); i++){
 			((l->listRessources)[i])->save(saving);
-			saving.close();
+			saving<<"\n";
 		}
+		saving.close();
     }
 
     else
@@ -300,7 +301,15 @@ void save(Library *l, string filename){
 /*--------------------------------------list-------------------------------------*/
 
 void list(Library *l){
-	for(int i = 0; i<(l->getRessource_counter()); i++){
+	for(int i = 0; i<(l->sizeRessources()-1); i++){
 		show(l,i);
 	}
+	cout<<l->sizeRessources()<<"\n";
+}
+
+/*---------------------------------reset-----------------------------------------*/
+
+void reset(Library *l){
+	(l->listRessources).clear();
+	l->clearID();
 }

@@ -1,4 +1,5 @@
 #include "Library.hpp"
+#include "Ressource.hpp"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -8,8 +9,6 @@ using namespace std;
 					////////////////////
 					// Initialization //
 					////////////////////
-
-int Library::ressource_counter = 0;
 
 					/////////////////
 					// Constructor //
@@ -29,9 +28,7 @@ Library::~Library(){
 					//////////////
 					// Accessor //
 					//////////////
-int Library::getRessource_counter(){
-	return ressource_counter;
-}
+
 					/////////////
 					// Mutator //
 					/////////////
@@ -40,11 +37,16 @@ int Library::getRessource_counter(){
 					// Else //
 					//////////
 
-void Library::addRessource(Ressource *r){
-	listRessources.push_back(r);
-	ressource_counter++;
+void Library::clearID(){
+	Ressource::id_counter = 0;
+	while(not(Ressource::ids.empty()))Ressource::ids.pop();
 }
 
-void Library::showRessource(int id){
-	listRessources[id]->getInfo();
+void Library::addRessource(Ressource *r){
+	listRessources.push_back(r);
 }
+
+long Library::sizeRessources(){
+	return listRessources.size();
+}
+

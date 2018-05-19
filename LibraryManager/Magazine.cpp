@@ -22,6 +22,9 @@ using namespace std;
 					/////////////////
 
 Magazine::Magazine(){
+	title = "Unknown";
+	author = "Unknown";
+	free = true;
 	editor = "Unknown";
 	articles = 0;
 }
@@ -30,7 +33,6 @@ Magazine::Magazine(string _title, string _author, int _pages, string _publicatio
 	title = _title;
 	author = _author;
 	free = true;
-	id = id_counter;
 	pages = _pages;
 	publication = _publication;
 	collection = _collection;

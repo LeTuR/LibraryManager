@@ -22,7 +22,9 @@ using namespace std;
 					/////////////////
 
 Book::Book(){
-	Ressource();
+	title = "Unknown";
+	author = "Unknown";
+	free = true;
 	pages = 0;
 	publication = "Unknown";
 	collection = "Unknown";
@@ -33,7 +35,6 @@ Book::Book(string _title, string _author, int _pages, string _publication, strin
 	title = _title;
 	author = _author;
 	free = true;
-	id = id_counter;
 	pages = _pages;
 	publication = _publication;
 	collection = _collection;
