@@ -7,68 +7,59 @@
 //
 
 #include "VHS.hpp"
-#include <fstream>
-#include <iostream>
+#include <stdio.h>
 #include <string>
 
 using namespace std;
 
-////////////////////
-// Initialization //
-////////////////////
+					////////////////////
+					// Initialization //
+					////////////////////
 
-/////////////////
-// Constructor //
-/////////////////
+					/////////////////
+					// Constructor //
+					/////////////////
 
-VHS::VHS() {
+VHS::VHS(){
 	duration = 0;
 	studio = "Unknown";
 }
 
-VHS::VHS(string _title, string _author, int _duration, string _studio) {
-	title = _title;
-	author = _author;
-	free = true;
-	id = id_counter;
+VHS::VHS(string _title, string _author, int _duration, string _studio){
+	Ressource(_title, _author);
 	duration = _duration;
 	studio = _studio;
 }
 
-////////////////
-// Destructor //
-////////////////
+					////////////////
+					// Destructor //
+					////////////////
 
-VHS::~VHS() {
-
+VHS::~VHS(){
+	
 }
 
-//////////////
-// Accessor //
-//////////////
+					//////////////
+					// Accessor //
+					//////////////
 
-int VHS::getDuration() {
+int VHS::getDuration(){
 	return duration;
 }
 
-string VHS::getStudio() {
+string VHS::getStudio(){
 	return studio;
 }
 
-/////////////
-// Mutator //
-/////////////
-
-//////////
-// Else //
-//////////
-
-void VHS::save(ofstream &saving) {
-	Ressource::save(saving);
-	saving << duration << " " << studio;
+void VHS::save(){
+    Ressource::save();
+    cout<<duration<<studio;
 }
 
-void VHS::display() {
-	Ressource::display();
-	cout << duration << " " << studio;
-}
+					/////////////
+					// Mutator //
+					/////////////
+
+					//////////
+					// Else //
+					//////////

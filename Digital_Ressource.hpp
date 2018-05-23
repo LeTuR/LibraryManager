@@ -9,31 +9,30 @@
 #ifndef Digital_Ressource_hpp
 #define Digital_Ressource_hpp
 
-#include <iostream>
+#include <stdio.h>
 #include <string>
 #include "Ressource.hpp"
 
-enum doc_type { PDF, DOC, PPT };
+enum doc_type {PDF,DOC,PPT};
 
-class Digital_Ressource : public Ressource {
-
+class Digital_Ressource : public Ressource{
+	
 public:
 	Digital_Ressource();
 	Digital_Ressource(std::string _title, std::string _author, doc_type _type, int _size, std::string _path);
 	~Digital_Ressource();
 
-	virtual void save(std::ofstream &saving);
-	virtual void display();
-
+    virtual void save();
+	
 	doc_type getType();
 	int getSize();
 	std::string getPath();
-
+	
 private:
 	doc_type type;
 	int size;
 	std::string path;
-
+	
 };
 
 #endif /* Digital_Ressource_hpp */

@@ -7,70 +7,61 @@
 //
 
 #include "CD.hpp"
-#include <fstream>
-#include <iostream>
+#include <stdio.h>
 #include <string>
 
 using namespace std;
 
-////////////////////
-// Initialization //
-////////////////////
+					////////////////////
+					// Initialization //
+					////////////////////
 
-/////////////////
-// Constructor //
-/////////////////
+					/////////////////
+					// Constructor //
+					/////////////////
 
-CD::CD() {
+CD::CD(){
 	duration = 0;
 	chapters = 0;
 	studio = "Unknown";
 }
 
-CD::CD(string _title, string _author, int _duration, int _chapters, string _studio) {
-	title = _title;
-	author = _author;
-	free = true;
-	id = id_counter;
+CD::CD(string _title, string _author, int _duration, int _chapters, string _studio){
+	Ressource(_title, _author);
 	duration = _duration;
 	chapters = _chapters;
 	studio = _studio;
 }
 
-////////////////
-// Destructor //
-////////////////
-CD::~CD() {
-
+					////////////////
+					// Destructor //
+					////////////////
+CD::~CD(){
+	
 }
-//////////////
-// Accessor //
-//////////////
+					//////////////
+					// Accessor //
+					//////////////
 
-int CD::getDuration() {
+int CD::getDuration(){
 	return duration;
 }
-int CD::getChapters() {
+int CD::getChapters(){
 	return chapters;
 }
-string CD::getStudio() {
+string CD::getStudio(){
 	return studio;
 }
 
-/////////////
-// Mutator //
-/////////////
-
-//////////
-// Else //
-//////////
-
-void CD::save(ofstream &saving) {
-	Ressource::save(saving);
-	saving << duration << " " << chapters << " " << studio;
+void CD::save(){
+    Ressource::save();
+    cout<<duration<<chapters<<studio;
 }
 
-void CD::display() {
-	Ressource::display();
-	cout << duration << " " << chapters << " " << studio;
-}
+					/////////////
+					// Mutator //
+					/////////////
+
+					//////////
+					// Else //
+					//////////

@@ -9,25 +9,24 @@
 #ifndef VHS_hpp
 #define VHS_hpp
 
-#include <iostream>
+#include <stdio.h>
 #include <string>
 #include "Ressource.hpp"
 
-class VHS : public Ressource {
+class VHS : public Ressource{
 
 protected:
 	int duration;
 	std::string studio;
-
+	
 public:
 	VHS();
 	VHS(std::string _title, std::string _author, int _duration, std::string _studio);
 	VHS(int _duration, std::string _studio);
 	~VHS();
 
-	virtual void save(std::ofstream &saving);
-	virtual void display();
-
+    virtual void save();
+	
 	int getDuration();
 	std::string getStudio();
 };

@@ -7,78 +7,68 @@
 //
 
 #include "Book.hpp"
-#include <fstream>
-#include <iostream>
+#include <stdio.h>
 #include <string>
 
 using namespace std;
 
-////////////////////
-// Initialization //
-////////////////////
+					////////////////////
+					// Initialization //
+					////////////////////
 
-/////////////////
-// Constructor //
-/////////////////
+					/////////////////
+					// Constructor //
+					/////////////////
 
-Book::Book() {
-	Ressource();
+Book::Book(){
 	pages = 0;
 	publication = "Unknown";
 	collection = "Unknown";
 	summary = "Unknown";
 }
 
-Book::Book(string _title, string _author, int _pages, string _publication, string _collection, string _summary) {
-	title = _title;
-	author = _author;
-	free = true;
-	id = id_counter;
+Book::Book(string _title, string _author, int _pages, string _publication, string _collection, string _summary){
+	Ressource(_title, _author);
 	pages = _pages;
 	publication = _publication;
 	collection = _collection;
 	summary = _summary;
 }
 
-////////////////
-// Destructor //
-////////////////
+					////////////////
+					// Destructor //
+					////////////////
 
-Book::~Book() {
-
+Book::~Book(){
+	
 }
 
-//////////////
-// Accessor //
-//////////////
+					//////////////
+					// Accessor //
+					//////////////
 
-int Book::getPages() {
+int Book::getPages(){
 	return pages;
 }
-string Book::getPublication() {
+string Book::getPublication(){
 	return publication;
 }
-string Book::getCollection() {
+string Book::getCollection(){
 	return collection;
 }
-string Book::getSummary() {
+string Book::getSummary(){
 	return summary;
 }
 
-/////////////
-// Mutator //
-/////////////
-
-//////////
-// Else //
-//////////
-
-void Book::save(ofstream &saving) {
-	Ressource::save(saving);
-	saving << pages << " " << publication << " " << collection << " " << summary;
+void Book::save(){
+    Ressource::save();
+    cout<<pages<<publication<<collection<<summary;
 }
 
-void Book::display() {
-	Ressource::display();
-	cout << pages << " " << publication << " " << collection << " " << summary;
-}
+					/////////////
+					// Mutator //
+					/////////////
+
+					//////////
+					// Else //
+					//////////

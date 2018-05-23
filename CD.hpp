@@ -9,31 +9,30 @@
 #ifndef CD_hpp
 #define CD_hpp
 
-#include <iostream>
+#include <stdio.h>
 #include <string>
 #include "Ressource.hpp"
 
 
-class CD : public Ressource {
+class CD : public Ressource{
 
 private:
 	int duration;
 	int chapters;
 	std::string studio;
-
+	
 public:
 	CD();
 	CD(std::string _title, std::string _author, int _duration, int _chapters, std::string _studio);
 	CD(int _duration, int _chapters, std::string _studio);
 	~CD();
 
-	virtual void save(std::ofstream &saving);
-	void display();
+    virtual void save();
 
 	int getDuration();
 	int getChapters();
 	std::string getStudio();
-
+	
 
 };
 

@@ -9,33 +9,29 @@
 #ifndef Ressource_hpp
 #define Ressource_hpp
 
-#include <iostream>
+#include <stdio.h>
 #include <string>
 
-class Ressource {
+class Ressource{
 
-protected:
+private:
 	static int id_counter;
 public:
 	std::string title;
 	std::string author;
 	int id;
-	bool free;
-
+	bool free;	
+	
 	Ressource();
 	Ressource(std::string _title, std::string _author);
 	~Ressource();
 
-	virtual void save(std::ofstream &saving);
-	virtual void display();
-	void RessourceReset(int _id);
-
-
+    virtual void save();
+	
 	std::string getTitle();
 	std::string getAuthor();
 	bool getDisponibility();
 	int getId();
-	std::string getInfo();
 };
 
 #endif /* Ressource_hpp */
