@@ -334,7 +334,7 @@ void load(Library *l) {
 				VHS *r = new VHS(title, author, duration, studio);
 				l->addRessource(r);
 			}
-            getline(loading, line);
+            getline(loading, line); //or loading.ignore();
 		}
 		cout << "Library succefully loaded!\n";
 	}
