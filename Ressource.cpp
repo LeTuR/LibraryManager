@@ -7,22 +7,23 @@
 //
 
 #include "Ressource.hpp"
-#include <stdio.h>
+#include <iostream>
+#include <fstream>
 #include <string>
 
 using namespace std;
 
-					////////////////////
-					// Initialization //
-					////////////////////
+////////////////////
+// Initialization //
+////////////////////
 
 int Ressource::id_counter = 0;
 
-					/////////////////
-					// Constructor //
-					/////////////////
+/////////////////
+// Constructor //
+/////////////////
 
-Ressource::Ressource(){
+Ressource::Ressource() {
 	title = "Unknown";
 	author = "Unknown";
 	free = true;
@@ -30,50 +31,73 @@ Ressource::Ressource(){
 	id_counter++;
 }
 
-Ressource::Ressource(string _title, string _author){
+Ressource::Ressource(string _title, string _author) {
 	title = _title;
 	author = _author;
 	free = true;
 	id = id_counter;
-	id_counter++;
 }
 
-					////////////////
-					// Destructor //
-					////////////////
 
-Ressource::~Ressource(){
+
+////////////////
+// Destructor //
+////////////////
+
+Ressource::~Ressource() {
 	id_counter--;
 }
 
-					//////////////
-					// Accessor //
-					//////////////
+//////////////
+// Accessor //
+//////////////
 
-string Ressource::getTitle(){
+string Ressource::getTitle() {
 	return title;
 }
 
-string Ressource::getAuthor(){
+string Ressource::getAuthor() {
 	return author;
 }
 
-int Ressource::getId(){
+int Ressource::getId() {
 	return id;
 }
 
-bool Ressource::getDisponibility(){
+bool Ressource::getDisponibility() {
 	return free;
 }
 
-void Ressource::save(){
-    cout<<title<<author<<id<<free;
+string Ressource::getInfo() {
+	string info;
+	return info;
 }
 
-					/////////////
-					// Mutator //
-					/////////////
+/////////////
+// Mutator //
+/////////////
 
-					//////////
-					// Else //
-					//////////
+//////////
+// Else //
+//////////
+
+void Ressource::save(ofstream &saving) {
+	saving << title << " " << author << " ";
+}
+
+void Ressource::display() {
+	cout << id << " " << title << " " << author << " ";
+}
+
+void Ressource::RessourceReset(int _id){
+	title = "Unknown";
+	author = "Unknown";
+	free = true;
+	id = _id + 1;
+}
+
+bool Ressource::search(string searched) {
+    if ("searched"==title || "searched"==author){
+        return true;
+    }
+}

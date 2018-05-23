@@ -7,61 +7,77 @@
 //
 
 #include "CD.hpp"
-#include <stdio.h>
+#include <fstream>
+#include <iostream>
 #include <string>
 
 using namespace std;
 
-					////////////////////
-					// Initialization //
-					////////////////////
+////////////////////
+// Initialization //
+////////////////////
 
-					/////////////////
-					// Constructor //
-					/////////////////
+/////////////////
+// Constructor //
+/////////////////
 
-CD::CD(){
+CD::CD() {
 	duration = 0;
 	chapters = 0;
 	studio = "Unknown";
 }
 
-CD::CD(string _title, string _author, int _duration, int _chapters, string _studio){
-	Ressource(_title, _author);
+CD::CD(string _title, string _author, int _duration, int _chapters, string _studio) {
+	title = _title;
+	author = _author;
+	free = true;
+	id = id_counter;
 	duration = _duration;
 	chapters = _chapters;
 	studio = _studio;
 }
 
-					////////////////
-					// Destructor //
-					////////////////
-CD::~CD(){
-	
-}
-					//////////////
-					// Accessor //
-					//////////////
+////////////////
+// Destructor //
+////////////////
+CD::~CD() {
 
-int CD::getDuration(){
+}
+//////////////
+// Accessor //
+//////////////
+
+int CD::getDuration() {
 	return duration;
 }
-int CD::getChapters(){
+int CD::getChapters() {
 	return chapters;
 }
-string CD::getStudio(){
+string CD::getStudio() {
 	return studio;
 }
 
-void CD::save(){
-    Ressource::save();
-    cout<<duration<<chapters<<studio;
+/////////////
+// Mutator //
+/////////////
+
+//////////
+// Else //
+//////////
+
+void CD::save(ofstream &saving) {
+	Ressource::save(saving);
+	saving << duration << " " << chapters << " " << studio;
 }
 
-					/////////////
-					// Mutator //
-					/////////////
+void CD::display() {
+	Ressource::display();
+	cout << duration << " " << chapters << " " << studio;
+}
 
-					//////////
-					// Else //
-					//////////
+bool CD::search(string searched) {
+    Ressource::search(searched);
+    if ("searched"==studio){
+        return true;
+    }
+}

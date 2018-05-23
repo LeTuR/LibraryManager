@@ -1,50 +1,60 @@
-//
-//  Library.cpp
-//  LibraryManager
-//
-//  Created by MagicLetur on 12/04/2018.
-//  Copyright © 2018 Cesare-Herriau. All rights reserved.
-//
-
 #include "Library.hpp"
-#include <stdio.h>
+#include "Ressource.hpp"
+#include <iostream>
 #include <string>
 #include <vector>
 
 using namespace std;
 
-					////////////////////
-					// Initialization //
-					////////////////////
+////////////////////
+// Initialization //
+////////////////////
 
-					/////////////////
-					// Constructor //
-					/////////////////
+int Library::ressource_counter = 0;
 
-Library::Library(){
-	
+/////////////////
+// Constructor //
+/////////////////
+
+Library::Library() {
+
 }
 
-					////////////////
-					// Destructor //
-					////////////////
+////////////////
+// Destructor //
+////////////////
 
-Library::~Library(){
-	
+Library::~Library() {
+
 }
-					//////////////
-					// Accessor //
-					//////////////
+//////////////
+// Accessor //
+//////////////
+int Library::getRessource_counter() {
+	return ressource_counter;
+}
+/////////////
+// Mutator //
+/////////////
 
-					/////////////
-					// Mutator //
-					/////////////
+//////////
+// Else //
+//////////
 
-					//////////
-					// Else //
-					//////////
-
-void Library::addRessource(Ressource r){
+void Library::addRessource(Ressource *r) {
 	listRessources.push_back(r);
+	ressource_counter++;
 }
 
+void Library::showRessource(int id) {
+	listRessources[id]->getInfo();
+}
+
+void Library::DecrementCounter() {
+	ressource_counter--;
+}
+
+void Library::clearID(){
+    Ressource::id_counter = 0;
+    while(not(Ressource::ids.empty()))Ressource::ids.pop();
+}

@@ -7,53 +7,68 @@
 //
 
 #include "DVD.hpp"
-#include <stdio.h>
+#include <fstream>
+#include <iostream>
 #include <string>
 
 using namespace std;
 
-					////////////////////
-					// Initialization //
-					////////////////////
+////////////////////
+// Initialization //
+////////////////////
 
-					/////////////////
-					// Constructor //
-					/////////////////
+/////////////////
+// Constructor //
+/////////////////
 
-DVD::DVD(){
+DVD::DVD() {
 	chapters = 0;
 }
 
-DVD::	DVD(std::string _title, std::string _author, int _duration, std::string _studio, int _chapters){
-	VHS(_title, _author, _duration, _studio);
+DVD::DVD(std::string _title, std::string _author, int _duration, std::string _studio, int _chapters) {
+	title = _title;
+	author = _author;
+	free = true;
+	id = id_counter;
+	duration = _duration;
+	studio = _studio;
 	chapters = _chapters;
 }
 
-					////////////////
-					// Destructor //
-					////////////////
+////////////////
+// Destructor //
+////////////////
 
-DVD::~DVD(){
-	
+DVD::~DVD() {
+
 }
 
-					//////////////
-					// Accessor //
-					//////////////
+//////////////
+// Accessor //
+//////////////
 
-int DVD::getChapters(){
+int DVD::getChapters() {
 	return chapters;
 }
 
-void DVD::save(){
-    VHS::save();
-    cout<<chapters;
+/////////////
+// Mutator //
+/////////////
+
+//////////
+// Else //
+//////////
+
+void DVD::save(ofstream &saving) {
+	VHS::save(saving);
+	saving << " " << chapters;
 }
 
-					/////////////
-					// Mutator //
-					/////////////
+void DVD::display() {
+	VHS::display();
+	cout << " " << chapters;
+}
 
-					//////////
-					// Else //
-					//////////
+bool DVD::search(string searched) {
+    VHS::search(searched);
+}

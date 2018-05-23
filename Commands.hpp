@@ -23,7 +23,13 @@
 #include <stdio.h>
 #include <string>
 
-void add(std::string type);
-void load();
+void add(Library *l, std::string type);
+void load(Library *l);
+void show(Library *l, int id);
+void save(Library *l, std::string filename);
+void list(Library *l);
+void remove(Library *l, int id);
+void reset(Library *l);
+void search(Library *l, std::string searched);
 
 #endif /* Commands_hpp */
