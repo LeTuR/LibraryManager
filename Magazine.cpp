@@ -77,8 +77,8 @@ void Magazine::display() {
 }
 
 bool Magazine::search(string searched) {
-    Book::search(searched);
-    if ("searched"==editor){
-        return true;
-    }
+	Book::search(searched);
+	if ("searched" == editor) {
+		return true;
+	}
 }

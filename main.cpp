@@ -23,11 +23,13 @@ using namespace std;
 int main(int argc, const char * argv[]) {
 
 	Library *l = new Library();
+	Library *templ = new Library();
+	Library *subtempl = new Library();
 
 	string input;
 	string type;
 	string filename;
-    string searched;
+	string searched;
 	int id;
 	int end = 0;
 
@@ -62,12 +64,12 @@ int main(int argc, const char * argv[]) {
 		}
 
 		else if (input == "SEARCH") {
-            cin >> searched;
-            remove(l, searched);
+			cin >> searched;
+			/*search(subtempl, templ, l, searched);*/
 		}
 
 		else if (input == "CLEAR") {
-            clear();
+			/*clear(templ);*/
 		}
 
 		else if (input == "LIST") {

@@ -84,8 +84,8 @@ void Book::display() {
 }
 
 bool Book::search(string searched) {
-    Ressource::search(searched);
-    if ("searched"==collection || "searched"==summary){
-        return true;
-    }
+	Ressource::search(searched);
+	if ("searched" == collection || "searched" == summary) {
+		return true;
+	}
 }

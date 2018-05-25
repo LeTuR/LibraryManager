@@ -23,7 +23,7 @@ public:
 
 	virtual void save(std::ofstream &saving);
 	virtual void display();
-    void search(std::string searched);
+	virtual bool search(std::string searched);
 
 
 	int getChapters();

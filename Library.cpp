@@ -54,7 +54,7 @@ void Library::DecrementCounter() {
 	ressource_counter--;
 }
 
-void Library::clearID(){
-    Ressource::id_counter = 0;
-    while(not(Ressource::ids.empty()))Ressource::ids.pop();
+void Library::clearID() {
+	Ressource::id_counter = 0;
+	while (not(Ressource::ids.empty()))Ressource::ids.pop();
 }

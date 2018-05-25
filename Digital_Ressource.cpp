@@ -77,8 +77,8 @@ void Digital_Ressource::display() {
 }
 
 bool Digital_Ressource::search(string searched) {
-    Ressource::search(searched);
-    if ("searched"==path){
-        return true;
-    }
+	Ressource::search(searched);
+	if ("searched" == path) {
+		return true;
+	}
 }

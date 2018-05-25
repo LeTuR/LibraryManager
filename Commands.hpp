@@ -29,7 +29,9 @@ void show(Library *l, int id);
 void save(Library *l, std::string filename);
 void list(Library *l);
 void remove(Library *l, int id);
-void reset(Library *l);
-void search(Library *l, std::string searched);
 
+void reset(Library *l);
+/*void search(Library *subtempl, Library *templ, Library *l, std::string searched);
+void clear(Library *templ);
+*/
 #endif /* Commands_hpp */

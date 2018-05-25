@@ -27,9 +27,9 @@ public:
 	CD(int _duration, int _chapters, std::string _studio);
 	~CD();
 
-    void save(std::ofstream &saving);
+	void save(std::ofstream &saving);
 	void display();
-    void search(std::string searched);
+	bool search(std::string searched);
 
 	int getDuration();
 	int getChapters();

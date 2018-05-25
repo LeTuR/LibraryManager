@@ -21,54 +21,53 @@
 #include <limits>
 
 using namespace std;
-Library *templ = new Library();
 
 /*---------------------search-----------------------------*/
-
-void search(Library *l, string searched) {
-    if ((templ->listRessources).empty()){
-        for (int i = 0; i < l->getRessource_counter(); i++) {
-            if (((l->listRessources)[i])->search(searched)){
-                (templ->addRessource(l->listRessources)[i]);
-            }
-        }
-        if (templ->getRessource_counter()=0){
-            cout << "Cannot find";
-        }
-    }
-    else {
-        Library *subtempl = new Library();
-        for (int i = 0; i < templ->getRessource_counter(); i++) {
-            if (((templ->listRessources)[i])->search(searched)){
-                (subtempl->addRessource(templ->listRessources)[i]);
-            }
-        }
-        reset(templ);
-        templ=subtempl;
-        if (templ->getRessource_counter()=0){
-            cout << "Cannot find";
-        }
-    }
-    for (int i = 0; i < templ->getRessource_counter(); i++) {
-        show(templ, i);
-    }
+/*
+void search(Library *subtempl, Library *templ, Library *l, string searched) {
+	if ((templ->listRessources).empty()) {
+		for (int i = 0; i < l->getRessource_counter(); i++) {
+			if (((l->listRessources)[i])->search(searched)) {
+				(templ->addRessource((l->listRessources)[i]));
+			}
+		}
+		if (templ->getRessource_counter() == 0) {
+			cout << "Cannot find";
+		}
+	}
+	else {
+		for (int i = 0; i < templ->getRessource_counter(); i++) {
+			if (((templ->listRessources)[i])->search(searched)) {
+				(subtempl->addRessource((templ->listRessources)[i]));
+			}
+		}
+		reset(templ);
+		templ = subtempl;
+		reset(templ);
+		if (templ->getRessource_counter() == 0) {
+			cout << "Cannot find";
+		}
+	}
+	for (int i = 0; i < templ->getRessource_counter(); i++) {
+		show(templ, i);
+	}
 }
-
+*/
 /*---------------------clear-----------------------------*/
-
-void clear() {
-    reset(templ);
+/*
+void clear(Library *templ) {
+	reset(templ);
 }
-
+*/
 /*---------------------remove-----------------------------*/
 
 void remove(Library *l, int id) {
 	if (id < l->getRessource_counter() and id >= 0) {
 		((l->listRessources)[id])->~Ressource();
 		((l->listRessources)[id])->RessourceReset(id);
-		for (int i = id+1; i <= l->getRessource_counter()-1; i++) {
+		for (int i = id + 1; i <= l->getRessource_counter() - 1; i++) {
 			(l->listRessources)[i]->id = (l->listRessources)[i]->id - 1;
-			(l->listRessources)[i-1] = (l->listRessources)[i];
+			(l->listRessources)[i - 1] = (l->listRessources)[i];
 		}
 		l->DecrementCounter();
 		(l->listRessources).pop_back();
@@ -292,7 +291,7 @@ void load(Library *l) {
 		string path;
 		string line;
 		//VHS and DVD
-        while (loading) {
+		while (loading) {
 			//RESSOURCE
 			loading >> type;
 			loading >> title;
@@ -334,7 +333,7 @@ void load(Library *l) {
 				VHS *r = new VHS(title, author, duration, studio);
 				l->addRessource(r);
 			}
-            getline(loading, line); //or loading.ignore();
+			getline(loading, line); //or loading.ignore();
 		}
 		cout << "Library succefully loaded!\n";
 	}
@@ -373,7 +372,7 @@ void list(Library *l) {
 
 /*---------------------------------reset-----------------------------------------*/
 
-void reset(Library *l){
-    (l->listRessources).clear();
-    l->clearID();
+void reset(Library *l) {
+	(l->listRessources).clear();
+	l->clearID();
 }

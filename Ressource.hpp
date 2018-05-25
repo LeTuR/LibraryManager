@@ -11,11 +11,14 @@
 
 #include <iostream>
 #include <string>
+#include <stack>
 
 class Ressource {
 
-protected:
+public:
 	static int id_counter;
+	static std::stack<int> ids;
+
 public:
 	std::string title;
 	std::string author;
@@ -29,7 +32,8 @@ public:
 	virtual void save(std::ofstream &saving);
 	virtual void display();
 	void RessourceReset(int _id);
-    virtual void search(std::string searched);
+	virtual bool search(std::string searched);
+	int idSelect();
 
 
 	std::string getTitle();

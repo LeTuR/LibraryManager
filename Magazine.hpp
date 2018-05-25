@@ -24,7 +24,7 @@ public:
 
 	void save(std::ofstream &saving);
 	void display();
-    void search(std::string searched);
+	virtual bool search(std::string searched);
 
 	std::string getEditors();
 	int getArticles();

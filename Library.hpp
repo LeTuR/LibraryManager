@@ -30,7 +30,7 @@ public:
 	void showId(int id);
 	void showRessource(int id);
 	void DecrementCounter();
-    void clear();
+	void clearID();
 
 	int getRessource_counter();
 

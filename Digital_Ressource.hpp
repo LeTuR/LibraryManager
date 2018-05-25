@@ -24,7 +24,7 @@ public:
 
 	virtual void save(std::ofstream &saving);
 	virtual void display();
-    virtual void search(std::string searched);
+	virtual bool search(std::string searched);
 
 	doc_type getType();
 	int getSize();

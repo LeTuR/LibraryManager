@@ -10,6 +10,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <stack>
+
 
 using namespace std;
 
@@ -89,7 +91,7 @@ void Ressource::display() {
 	cout << id << " " << title << " " << author << " ";
 }
 
-void Ressource::RessourceReset(int _id){
+void Ressource::RessourceReset(int _id) {
 	title = "Unknown";
 	author = "Unknown";
 	free = true;
@@ -97,7 +99,19 @@ void Ressource::RessourceReset(int _id){
 }
 
 bool Ressource::search(string searched) {
-    if ("searched"==title || "searched"==author){
-        return true;
-    }
+	if ("searched" == title || "searched" == author) {
+		return true;
+	}
+}
+int Ressource::idSelect() {
+	int buff;
+	if (ids.empty()) {
+		return (id_counter++);
+	}
+	else {
+		buff = ids.top();
+		ids.pop();
+		return buff;
+	}
+	return 0;
 }
