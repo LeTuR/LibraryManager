@@ -23,42 +23,67 @@
 using namespace std;
 
 /*---------------------search-----------------------------*/
-/*
-void search(Library *subtempl, Library *templ, Library *l, string searched) {
+
+int search(Library *subtempl, Library *templ, Library *l, string searched, int sizetempl) {
+	//string title;
+	//string author;
+	//Ressource *r = new Ressource(title, author);
 	if ((templ->listRessources).empty()) {
-		for (int i = 0; i < l->getRessource_counter(); i++) {
+		//int j=0;
+		int H = 0;
+		for (int i = 0; i < l->getRessource_counter() ; i++) {
+			//cout << "j = " << j << "\n";
+			//cout << "i = " << l->getRessource_counter() << "\n";
 			if (((l->listRessources)[i])->search(searched)) {
+				//templ->listRessources.push_back(r);
 				(templ->addRessource((l->listRessources)[i]));
+				//(templ->listRessources)[j] = (l->listRessources)[i];
+				//((templ->listRessources)[H])->display();
+				H++;
+				l->DecrementCounter();
 			}
+			//j++;
+			//cout << "H = " << templ->getRessource_counter() << "\n";
+			//show(l, i);
 		}
-		if (templ->getRessource_counter() == 0) {
-			cout << "Cannot find";
+		if (H == 0) {
+			cout << "Cannot find" << "\n";
 		}
+		for (int i = 0; i < H ; i++) {
+			show(templ, i);
+		}
+		sizetempl = H;
+		//cout << "K " << sizetempl << "\n";
 	}
 	else {
-		for (int i = 0; i < templ->getRessource_counter(); i++) {
+		int L=0;
+		//cout << "K " << sizetempl << "\n";
+		for (int i = 0; i < sizetempl; i++) {
 			if (((templ->listRessources)[i])->search(searched)) {
 				(subtempl->addRessource((templ->listRessources)[i]));
+				L++;
 			}
 		}
 		reset(templ);
 		templ = subtempl;
-		reset(templ);
-		if (templ->getRessource_counter() == 0) {
-			cout << "Cannot find";
+		if (L == 0) {
+			cout << "Cannot find" << "\n";
 		}
+		for (int i = 0; i < L; i++) {
+			show(templ, i);
+		}
+		sizetempl = L;
 	}
-	for (int i = 0; i < templ->getRessource_counter(); i++) {
-		show(templ, i);
-	}
+	return sizetempl;
 }
-*/
+
 /*---------------------clear-----------------------------*/
-/*
-void clear(Library *templ) {
+
+int clear(Library *templ) {
 	reset(templ);
+	return 0;
 }
-*/
+
 /*---------------------remove-----------------------------*/
 
 void remove(Library *l, int id) {

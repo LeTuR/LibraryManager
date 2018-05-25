@@ -77,7 +77,10 @@ void CD::display() {
 
 bool CD::search(string searched) {
 	Ressource::search(searched);
-	if ("searched" == studio) {
+	if (searched == studio) {
 		return true;
+	}
+	else {
+		return false;
 	}
 }

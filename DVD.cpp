@@ -71,7 +71,10 @@ void DVD::display() {
 
 bool DVD::search(string searched) {
 	Ressource::search(searched);
-	if ("searched" == studio) {
+	if (searched == studio) {
 		return true;
+	}
+	else {
+		return false;
 	}
 }

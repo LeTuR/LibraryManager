@@ -32,6 +32,8 @@ int main(int argc, const char * argv[]) {
 	string searched;
 	int id;
 	int end = 0;
+	int sizetempl = 0;
+
 
 	cout << "Welcome to the Library Manager!\n";
 	while (end == 0) {
@@ -65,11 +67,11 @@ int main(int argc, const char * argv[]) {
 
 		else if (input == "SEARCH") {
 			cin >> searched;
-			/*search(subtempl, templ, l, searched);*/
+			sizetempl = search(subtempl, templ, l, searched, sizetempl);
 		}
 
 		else if (input == "CLEAR") {
-			/*clear(templ);*/
+			sizetempl = clear(templ);
 		}
 
 		else if (input == "LIST") {

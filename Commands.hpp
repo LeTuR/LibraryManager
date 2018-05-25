@@ -31,7 +31,7 @@ void list(Library *l);
 void remove(Library *l, int id);
 
 void reset(Library *l);
-/*void search(Library *subtempl, Library *templ, Library *l, std::string searched);
-void clear(Library *templ);
-*/
+int search(Library *subtempl, Library *templ, Library *l, std::string searched, int sizetempl);
+int clear(Library *templ);
+
 #endif /* Commands_hpp */

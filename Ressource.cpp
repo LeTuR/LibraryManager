@@ -20,6 +20,7 @@ using namespace std;
 ////////////////////
 
 int Ressource::id_counter = 0;
+stack<int> Ressource::ids;
 
 /////////////////
 // Constructor //
@@ -99,8 +100,11 @@ void Ressource::RessourceReset(int _id) {
 }
 
 bool Ressource::search(string searched) {
-	if ("searched" == title || "searched" == author) {
+	if (searched == title || searched == author) {
 		return true;
+	}
+	else {
+		return false;
 	}
 }
 int Ressource::idSelect() {

@@ -75,7 +75,10 @@ void VHS::display() {
 
 bool VHS::search(string searched) {
 	Ressource::search(searched);
-	if ("searched" == studio) {
+	if (searched == studio) {
 		return true;
+	}
+	else {
+		return false;
 	}
 }
