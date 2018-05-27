@@ -7,7 +7,8 @@
 //
 
 #include "CD.hpp"
-#include <stdio.h>
+#include <fstream>
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -21,13 +22,18 @@ using namespace std;
 					/////////////////
 
 CD::CD(){
-	duration = 0;
+	title = "Unknown";
+	author = "Unknown";
+	free = true;
+    duration = "00:00";
 	chapters = 0;
 	studio = "Unknown";
 }
 
-CD::CD(string _title, string _author, int _duration, int _chapters, string _studio){
-	Ressource(_title, _author);
+CD::CD(string _title, string _author, string _duration, string _studio, int _chapters){
+	title = _title;
+	author = _author;
+	free = true;
 	duration = _duration;
 	chapters = _chapters;
 	studio = _studio;
@@ -43,7 +49,7 @@ CD::~CD(){
 					// Accessor //
 					//////////////
 
-int CD::getDuration(){
+string CD::getDuration(){
 	return duration;
 }
 int CD::getChapters(){
@@ -53,11 +59,6 @@ string CD::getStudio(){
 	return studio;
 }
 
-void CD::save(){
-    Ressource::save();
-    cout<<duration<<chapters<<studio;
-}
-
 					/////////////
 					// Mutator //
 					/////////////
@@ -65,3 +66,25 @@ void CD::save(){
 					//////////
 					// Else //
 					//////////
+
+void CD::save(ofstream &saving){
+    saving<<"CD"<<"\n";
+    Ressource::save(saving);
+    saving<<duration<<"\n"<<studio<<"\n"<<chapters;
+}
+
+void CD::display(){
+	Ressource::display();
+	cout<<duration<<" "<<chapters<<" "<<studio;
+}
+
+string CD::qDisplay(){
+    return ("CD\n"+Ressource::qDisplay() + "Duration: "+duration+"\n"+"Studio: "+studio+"\n"+"Chapters: "+to_string(chapters));
+}
+
+bool CD::search(string searched) {
+    if (Ressource::search(searched)==true) return true;
+    else if (duration.find(searched)!=std::string::npos || studio.find(searched)!=std::string::npos
+             || to_string(chapters).find(searched)!=std::string::npos) return true;
+    else return false;
+}

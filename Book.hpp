@@ -9,7 +9,7 @@
 #ifndef Book_hpp
 #define Book_hpp
 
-#include <stdio.h>
+#include <iostream>
 #include <string>
 #include "Ressource.hpp"
 
@@ -28,8 +28,11 @@ public:
 	Book(int _pages, std::string _publication, std::string _collection, std::string _summary);
 	~Book();
 
-    virtual std::string save();
-	
+	virtual void save(std::ofstream &saving);
+	virtual void display();
+    virtual std::string qDisplay();
+    virtual bool search(std::string searched);
+
 	int getPages();
 	std::string getPublication();
 	std::string getCollection();

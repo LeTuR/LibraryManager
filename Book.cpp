@@ -7,7 +7,8 @@
 //
 
 #include "Book.hpp"
-#include <stdio.h>
+#include <fstream>
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -21,6 +22,9 @@ using namespace std;
 					/////////////////
 
 Book::Book(){
+	title = "Unknown";
+	author = "Unknown";
+	free = true;
 	pages = 0;
 	publication = "Unknown";
 	collection = "Unknown";
@@ -28,7 +32,9 @@ Book::Book(){
 }
 
 Book::Book(string _title, string _author, int _pages, string _publication, string _collection, string _summary){
-	Ressource(_title, _author);
+	title = _title;
+	author = _author;
+	free = true;
 	pages = _pages;
 	publication = _publication;
 	collection = _collection;
@@ -60,11 +66,6 @@ string Book::getSummary(){
 	return summary;
 }
 
-void Book::save(){
-    Ressource::save();
-    cout<<pages<<publication<<collection<<summary;
-}
-
 					/////////////
 					// Mutator //
 					/////////////
@@ -72,3 +73,25 @@ void Book::save(){
 					//////////
 					// Else //
 					//////////
+
+void Book::save(ofstream &saving){
+    saving<<"Book"<<"\n";
+    Ressource::save(saving);
+    saving<<pages<<"\n"<<publication<<"\n"<<collection<<"\n"<<summary;
+}
+
+void Book::display(){
+	Ressource::display();
+	cout<<pages<<" "<<publication<<" "<<collection<<" "<<summary;
+}
+
+string Book::qDisplay(){
+    return ("BOOK\n"+Ressource::qDisplay()+"Pages: "+to_string(pages)+"\n"+"Publication: "+publication+"\n"+"Summary: "+summary);
+}
+
+bool Book::search(string searched) {
+    if (Ressource::search(searched)==true) return true;
+    else if (publication.find(searched)!=std::string::npos || collection.find(searched)!=std::string::npos
+             || to_string(pages).find(searched)!=std::string::npos|| summary.find(searched)!=std::string::npos) return true;
+    else return false;
+}

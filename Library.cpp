@@ -1,13 +1,6 @@
-//
-//  Library.cpp
-//  LibraryManager
-//
-//  Created by MagicLetur on 12/04/2018.
-//  Copyright © 2018 Cesare-Herriau. All rights reserved.
-//
-
 #include "Library.hpp"
-#include <stdio.h>
+#include "Ressource.hpp"
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -30,7 +23,7 @@ Library::Library(){
 					////////////////
 
 Library::~Library(){
-	
+    vector<Ressource*>().swap(listRessources);
 }
 					//////////////
 					// Accessor //
@@ -44,7 +37,16 @@ Library::~Library(){
 					// Else //
 					//////////
 
-void Library::addRessource(Ressource r){
+void Library::clearID(){
+	Ressource::id_counter = 0;
+	while(not(Ressource::ids.empty()))Ressource::ids.pop();
+}
+
+void Library::addRessource(Ressource *r){
 	listRessources.push_back(r);
+}
+
+long Library::sizeRessources(){
+	return listRessources.size();
 }
 

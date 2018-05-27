@@ -7,7 +7,8 @@
 //
 
 #include "VHS.hpp"
-#include <stdio.h>
+#include <fstream>
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -21,12 +22,17 @@ using namespace std;
 					/////////////////
 
 VHS::VHS(){
-	duration = 0;
+	title = "Unknown";
+	author = "Unknown";
+	free = true;
+    duration = "00:00";
 	studio = "Unknown";
 }
 
-VHS::VHS(string _title, string _author, int _duration, string _studio){
-	Ressource(_title, _author);
+VHS::VHS(string _title, string _author, string _duration, string _studio){
+	title = _title;
+	author = _author;
+	free = true;
 	duration = _duration;
 	studio = _studio;
 }
@@ -43,17 +49,12 @@ VHS::~VHS(){
 					// Accessor //
 					//////////////
 
-int VHS::getDuration(){
+string VHS::getDuration(){
 	return duration;
 }
 
 string VHS::getStudio(){
 	return studio;
-}
-
-void VHS::save(){
-    Ressource::save();
-    cout<<duration<<studio;
 }
 
 					/////////////
@@ -63,3 +64,24 @@ void VHS::save(){
 					//////////
 					// Else //
 					//////////
+
+void VHS::save(ofstream &saving){
+    saving<<"VHS"<<"\n";
+    Ressource::save(saving);
+    saving<<duration<<"\n"<<studio;
+}
+
+void VHS::display(){
+	Ressource::display();
+	cout<<duration<<" "<<studio;
+}
+
+string VHS::qDisplay(){
+    return ("VHS\n"+ Ressource::qDisplay() + "Duration: "+duration+"\n"+"Studio: "+studio+"\n");
+}
+
+bool VHS::search(string searched) {
+    if (Ressource::search(searched)==true) return true;
+    else if (duration.find(searched)!=std::string::npos || studio.find(searched)!=std::string::npos) return true;
+    else return false;
+}

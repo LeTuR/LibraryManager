@@ -9,7 +9,7 @@
 #ifndef CD_hpp
 #define CD_hpp
 
-#include <stdio.h>
+#include <iostream>
 #include <string>
 #include "Ressource.hpp"
 
@@ -17,19 +17,22 @@
 class CD : public Ressource{
 
 private:
-	int duration;
+    std::string duration;
 	int chapters;
 	std::string studio;
 	
 public:
 	CD();
-	CD(std::string _title, std::string _author, int _duration, int _chapters, std::string _studio);
-	CD(int _duration, int _chapters, std::string _studio);
+    CD(std::string _title, std::string _author, std::string _duration, std::string _studio, int _chapters);
+    CD(int _duration, std::string _studio, int _chapters);
 	~CD();
 
-    virtual std::string save();
+    virtual void save(std::ofstream &saving);
+    virtual void display();
+    virtual std::string qDisplay();
+    virtual bool search(std::string searched);
 
-	int getDuration();
+    std::string getDuration();
 	int getChapters();
 	std::string getStudio();
 	

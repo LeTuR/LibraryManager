@@ -23,7 +23,16 @@
 #include <stdio.h>
 #include <string>
 
-void add(std::string type);
-void load();
+void add(Library *l, std::string type);
+int qLoad(Library *l, std::string path);
+void show(Library *l, int id);
+std::string qShow(Library *l, int id);
+std::string qRent(Library *l, int id);
+std::string qGiveBack(Library *l, int id);
+int qSave(Library *l, std::string filename);
+std::string qList(Library *l);
+void resetLib(Library *l);
+std::string qDelete(Library *l, int id);
+void qSearch(Library *l, std::string searched);
 
 #endif /* Commands_hpp */

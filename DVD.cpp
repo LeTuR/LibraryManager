@@ -7,7 +7,8 @@
 //
 
 #include "DVD.hpp"
-#include <stdio.h>
+#include <fstream>
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -21,11 +22,18 @@ using namespace std;
 					/////////////////
 
 DVD::DVD(){
+	title = "Unknown";
+	author = "Unknown";
+	free = true;
 	chapters = 0;
 }
 
-DVD::	DVD(std::string _title, std::string _author, int _duration, std::string _studio, int _chapters){
-	VHS(_title, _author, _duration, _studio);
+DVD::	DVD(std::string _title, std::string _author, std::string _duration, std::string _studio, int _chapters){
+	title = _title;
+	author = _author;
+	free = true;
+	duration = _duration;
+	studio = _studio;
 	chapters = _chapters;
 }
 
@@ -45,11 +53,6 @@ int DVD::getChapters(){
 	return chapters;
 }
 
-void DVD::save(){
-    VHS::save();
-    cout<<chapters;
-}
-
 					/////////////
 					// Mutator //
 					/////////////
@@ -57,3 +60,24 @@ void DVD::save(){
 					//////////
 					// Else //
 					//////////
+
+void DVD::save(ofstream &saving){
+    saving<<"VHS"<<"\n";
+    Ressource::save(saving);
+    saving<<duration<<"\n"<<studio<<"\n"<<chapters;
+}
+
+void DVD::display(){
+	VHS::display();
+	cout<<" "<<chapters;
+}
+
+string DVD::qDisplay(){
+    return ("DVD\n"+Ressource::qDisplay() + "Duration: "+duration+"\n"+"Studio: "+studio+"\n"+"Chapters: "+to_string(chapters));
+}
+
+bool DVD::search(string searched) {
+    if (VHS::search(searched)==true) return true;
+    else if (to_string(chapters).find(searched)!=std::string::npos) return true;
+    else return false;
+}

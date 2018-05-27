@@ -7,8 +7,10 @@
 //
 
 #include "Ressource.hpp"
-#include <stdio.h>
+#include <iostream>
+#include <fstream>
 #include <string>
+#include <stack>
 
 using namespace std;
 
@@ -17,6 +19,7 @@ using namespace std;
 					////////////////////
 
 int Ressource::id_counter = 0;
+stack<int> Ressource::ids;
 
 					/////////////////
 					// Constructor //
@@ -26,16 +29,14 @@ Ressource::Ressource(){
 	title = "Unknown";
 	author = "Unknown";
 	free = true;
-	id = id_counter;
-	id_counter++;
+    visible = true;
+	id = idSelect();
 }
 
 Ressource::Ressource(string _title, string _author){
 	title = _title;
 	author = _author;
 	free = true;
-	id = id_counter;
-	id_counter++;
 }
 
 					////////////////
@@ -43,7 +44,6 @@ Ressource::Ressource(string _title, string _author){
 					////////////////
 
 Ressource::~Ressource(){
-	id_counter--;
 }
 
 					//////////////
@@ -66,14 +66,63 @@ bool Ressource::getDisponibility(){
 	return free;
 }
 
-void Ressource::save(){
-    cout<<title<<author<<id<<free;
+bool Ressource::getVisbility(){
+    return visible;
 }
 
 					/////////////
 					// Mutator //
 					/////////////
 
+void Ressource::setVisbility(bool a){
+    visible = a;
+}
+
+void Ressource::setDisponibility(bool a){
+    free = a;
+}
+
+
 					//////////
 					// Else //
 					//////////
+
+int Ressource::idSelect(){
+	int buff;
+	if (ids.empty()){
+		return (id_counter++);
+	}
+	else{
+		buff = ids.top();
+		ids.pop();
+		return buff;
+	}
+	return 0;
+}
+
+void Ressource::save(ofstream &saving){
+    if(free==true) saving<<title<<"\n"<<author<<"\n"<<"Available\n";
+    else saving<<title<<"\n"<<author<<"\n"<<"Not Available\n";
+}
+
+void Ressource::display(){
+	cout<<id<<" "<<title<<" "<<author<<" ";
+}
+
+string Ressource::qDisplay(){
+    if(free==true){
+    return "ID: "+to_string(id)+"\n"+"Title: "+title+"\n"+"Author: " +author+"\n"+"Available\n";
+    }
+    else{
+        return "ID: "+to_string(id)+"\n"+"Title: "+title+"\n"+"Author: " +author+"\n"+"Not Available\n";
+    }
+}
+
+bool Ressource::search(string searched) {
+    if (title.find(searched)!=std::string::npos || author.find(searched)!=std::string::npos) return true;
+    else return false;
+}
+
+void Ressource::saveID(){
+    ids.push(id);
+}
